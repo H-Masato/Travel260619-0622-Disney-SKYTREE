@@ -27,6 +27,16 @@
   body { background: var(--cream); color: var(--text); font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 300; overflow-x: hidden; overscroll-behavior-y: none; }
 
   /* ── COVER ── */
+  /* ステータスバー領域を紺色でカバーするオーバーレイ */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: env(safe-area-inset-top);
+    background: var(--navy);
+    z-index: 9999;
+    pointer-events: none;
+  }
   .cover {
     min-height: 100vh;
     min-height: 100dvh;
@@ -36,7 +46,6 @@
     padding: 60px 24px;
     padding-top: calc(60px + env(safe-area-inset-top));
     padding-bottom: calc(80px + env(safe-area-inset-bottom));
-    /* Safariアドレスバー下の白を隠すためmargin-bottomで延長 */
     margin-bottom: -2px;
   }
   .cover::before {
@@ -44,11 +53,11 @@
     background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(201,149,42,0.12) 0%, transparent 70%),
                 radial-gradient(ellipse 60% 80% at 20% 80%, rgba(111,163,192,0.08) 0%, transparent 60%);
   }
-  /* ステータスバーとの境目を自然にする上部オーバーレイ */
+  /* ステータスバーとの境目を自然にする上部グラデーション */
   .cover::after {
     content: ''; position: absolute; top: 0; left: 0; right: 0;
-    height: calc(60px + env(safe-area-inset-top));
-    background: linear-gradient(to bottom, var(--navy) 40%, transparent 100%);
+    height: calc(env(safe-area-inset-top) + 80px);
+    background: linear-gradient(to bottom, var(--navy) 50%, transparent 100%);
     pointer-events: none;
     z-index: 1;
   }
