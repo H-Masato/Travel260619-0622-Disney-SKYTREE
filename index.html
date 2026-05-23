@@ -3,11 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#0f1a2e">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="mobile-web-app-capable" content="yes">
 <title>TDL旅のしおり ✦ 2026.6.19–22</title>
+<link href="./TDL旅のしおり ✦ 2025.6.19–22_files/css2" rel="stylesheet">
 <style>
   :root {
     --gold: #c9952a;
@@ -27,20 +24,17 @@
   body { background: var(--cream); color: var(--text); font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 300; overflow-x: hidden; overscroll-behavior-y: none; }
 
   /* ── COVER ── */
-  /* ステータスバー領域を紺色でカバーするオーバーレイ */
-  body::before {
-    content: '';
+  /* ノッチ裏まで紺色背景を広げるfixedレイヤー（トップページ表示中のみ有効） */
+  .cover-bg {
     position: fixed;
-    top: 0; left: 0; right: 0;
-    height: env(safe-area-inset-top);
+    top: 0; left: 0; right: 0; bottom: 0;
     background: var(--navy);
-    z-index: 9999;
-    pointer-events: none;
+    z-index: -1;
   }
   .cover {
     min-height: 100vh;
     min-height: 100dvh;
-    background: var(--navy);
+    background: transparent;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     position: relative; overflow: hidden;
     padding: 60px 24px;
@@ -53,15 +47,7 @@
     background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(201,149,42,0.12) 0%, transparent 70%),
                 radial-gradient(ellipse 60% 80% at 20% 80%, rgba(111,163,192,0.08) 0%, transparent 60%);
   }
-  /* ステータスバーとの境目を自然にする上部グラデーション */
-  .cover::after {
-    content: ''; position: absolute; top: 0; left: 0; right: 0;
-    height: calc(env(safe-area-inset-top) + 80px);
-    background: linear-gradient(to bottom, var(--navy) 50%, transparent 100%);
-    pointer-events: none;
-    z-index: 1;
-  }
-  .stars { position: absolute; inset: 0; pointer-events: none; }
+  .stars { position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 0; }
   .star { position: absolute; width: 2px; height: 2px; background: rgba(255,255,255,0.6); border-radius: 50%; animation: twinkle 3s infinite alternate; }
   @keyframes twinkle { from { opacity: 0.2; transform: scale(1); } to { opacity: 1; transform: scale(1.4); } }
   .cover-ornament { font-size: 2rem; color: var(--gold); letter-spacing: 0.3em; opacity: 0.7; animation: fadeDown 1s ease both; margin-bottom: 24px; }
@@ -362,6 +348,7 @@
 
 <!-- ── COVER ── -->
 <section class="cover">
+  <div class="cover-bg"></div>
   <div class="stars" id="stars"><div class="star" style="left: 89.3177%; top: 36.6281%; animation-delay: 1.32822s; animation-duration: 3.44465s;"></div><div class="star" style="left: 30.915%; top: 23.7963%; animation-delay: 0.352297s; animation-duration: 4.74846s;"></div><div class="star" style="left: 92.2755%; top: 28.4113%; animation-delay: 3.28026s; animation-duration: 4.79781s;"></div><div class="star" style="left: 23.9584%; top: 88.5907%; animation-delay: 3.89107s; animation-duration: 2.13253s;"></div><div class="star" style="left: 93.2782%; top: 63.4333%; animation-delay: 0.247753s; animation-duration: 2.02577s;"></div><div class="star" style="left: 62.731%; top: 13.9501%; animation-delay: 0.710092s; animation-duration: 2.65081s;"></div><div class="star" style="left: 78.3297%; top: 66.9572%; animation-delay: 2.55895s; animation-duration: 4.93768s;"></div><div class="star" style="left: 44.3347%; top: 87.001%; animation-delay: 3.13365s; animation-duration: 4.7734s;"></div><div class="star" style="left: 22.9129%; top: 22.8058%; animation-delay: 3.65366s; animation-duration: 4.90764s;"></div><div class="star" style="left: 59.6484%; top: 85.1181%; animation-delay: 1.69509s; animation-duration: 2.01283s;"></div><div class="star" style="left: 6.24302%; top: 54.4575%; animation-delay: 2.66367s; animation-duration: 4.60347s;"></div><div class="star" style="left: 57.865%; top: 63.5637%; animation-delay: 1.71004s; animation-duration: 4.66321s;"></div><div class="star" style="left: 27.213%; top: 38.3507%; animation-delay: 0.906056s; animation-duration: 2.27811s;"></div><div class="star" style="left: 67.9593%; top: 67.655%; animation-delay: 2.81784s; animation-duration: 4.64721s;"></div><div class="star" style="left: 47.1029%; top: 65.6476%; animation-delay: 2.99974s; animation-duration: 4.74878s;"></div><div class="star" style="left: 88.6771%; top: 84.6965%; animation-delay: 3.22347s; animation-duration: 3.68404s;"></div><div class="star" style="left: 27.7537%; top: 39.069%; animation-delay: 2.81802s; animation-duration: 3.78544s;"></div><div class="star" style="left: 92.6546%; top: 15.4388%; animation-delay: 1.29792s; animation-duration: 2.98896s;"></div><div class="star" style="left: 99.6087%; top: 41.3966%; animation-delay: 2.318s; animation-duration: 4.7227s;"></div><div class="star" style="left: 20.6283%; top: 76.5979%; animation-delay: 3.36944s; animation-duration: 2.09899s;"></div><div class="star" style="left: 78.8401%; top: 61.4712%; animation-delay: 0.75413s; animation-duration: 4.08582s;"></div><div class="star" style="left: 18.1004%; top: 9.97859%; animation-delay: 0.531017s; animation-duration: 4.74725s;"></div><div class="star" style="left: 61.2634%; top: 9.39254%; animation-delay: 2.93538s; animation-duration: 3.76536s;"></div><div class="star" style="left: 98.0731%; top: 65.1857%; animation-delay: 2.11041s; animation-duration: 4.32192s;"></div><div class="star" style="left: 65.399%; top: 96.9852%; animation-delay: 3.40732s; animation-duration: 2.8756s;"></div><div class="star" style="left: 27.8549%; top: 26.7329%; animation-delay: 0.888168s; animation-duration: 4.00972s;"></div><div class="star" style="left: 99.3751%; top: 57.8566%; animation-delay: 2.89499s; animation-duration: 3.42192s;"></div><div class="star" style="left: 52.4626%; top: 88.9543%; animation-delay: 2.31329s; animation-duration: 3.05056s;"></div><div class="star" style="left: 92.7003%; top: 96.8225%; animation-delay: 1.99717s; animation-duration: 3.33336s;"></div><div class="star" style="left: 77.5262%; top: 99.9099%; animation-delay: 3.8127s; animation-duration: 4.78758s;"></div><div class="star" style="left: 35.6168%; top: 40.5137%; animation-delay: 1.52685s; animation-duration: 2.61533s;"></div><div class="star" style="left: 90.9335%; top: 29.2013%; animation-delay: 1.58569s; animation-duration: 4.9919s;"></div><div class="star" style="left: 65.3152%; top: 14.2686%; animation-delay: 1.39256s; animation-duration: 4.99147s;"></div><div class="star" style="left: 97.1507%; top: 97.1437%; animation-delay: 0.868411s; animation-duration: 2.4676s;"></div><div class="star" style="left: 27.1634%; top: 61.4773%; animation-delay: 1.70565s; animation-duration: 2.0836s;"></div><div class="star" style="left: 81.2513%; top: 71.6021%; animation-delay: 3.8625s; animation-duration: 4.36021s;"></div><div class="star" style="left: 35.8858%; top: 80.5497%; animation-delay: 1.08842s; animation-duration: 3.08211s;"></div><div class="star" style="left: 1.98084%; top: 92.9423%; animation-delay: 1.87111s; animation-duration: 4.30782s;"></div><div class="star" style="left: 86.5667%; top: 25.4372%; animation-delay: 3.94669s; animation-duration: 3.2531s;"></div><div class="star" style="left: 80.5504%; top: 99.3155%; animation-delay: 0.829354s; animation-duration: 3.71343s;"></div><div class="star" style="left: 95.9007%; top: 73.8913%; animation-delay: 1.91315s; animation-duration: 3.02741s;"></div><div class="star" style="left: 11.9578%; top: 76.1216%; animation-delay: 2.5617s; animation-duration: 3.94828s;"></div><div class="star" style="left: 32.9275%; top: 79.9788%; animation-delay: 2.6982s; animation-duration: 4.84288s;"></div><div class="star" style="left: 9.42232%; top: 50.0787%; animation-delay: 3.18201s; animation-duration: 4.53747s;"></div><div class="star" style="left: 32.4117%; top: 72.2702%; animation-delay: 1.93313s; animation-duration: 2.0094s;"></div><div class="star" style="left: 42.8282%; top: 94.1146%; animation-delay: 2.55483s; animation-duration: 4.20952s;"></div><div class="star" style="left: 26.7272%; top: 22.8012%; animation-delay: 2.03727s; animation-duration: 3.75203s;"></div><div class="star" style="left: 11.0952%; top: 59.329%; animation-delay: 1.25855s; animation-duration: 3.14946s;"></div><div class="star" style="left: 20.2173%; top: 69.8574%; animation-delay: 1.56151s; animation-duration: 2.09622s;"></div><div class="star" style="left: 38.3159%; top: 49.7801%; animation-delay: 2.03984s; animation-duration: 4.17777s;"></div><div class="star" style="left: 75.2969%; top: 79.0443%; animation-delay: 3.14538s; animation-duration: 2.85446s;"></div><div class="star" style="left: 26.5529%; top: 91.0974%; animation-delay: 1.50993s; animation-duration: 3.71488s;"></div><div class="star" style="left: 10.7767%; top: 59.4004%; animation-delay: 0.510674s; animation-duration: 2.4828s;"></div><div class="star" style="left: 73.4827%; top: 87.8027%; animation-delay: 2.13396s; animation-duration: 3.05515s;"></div><div class="star" style="left: 55.696%; top: 22.7801%; animation-delay: 3.16234s; animation-duration: 3.00493s;"></div><div class="star" style="left: 11.9633%; top: 46.4432%; animation-delay: 1.35816s; animation-duration: 2.42319s;"></div><div class="star" style="left: 42.3269%; top: 38.7627%; animation-delay: 0.544029s; animation-duration: 2.40313s;"></div><div class="star" style="left: 7.07964%; top: 96.2767%; animation-delay: 2.01524s; animation-duration: 3.46371s;"></div><div class="star" style="left: 59.6938%; top: 5.39467%; animation-delay: 0.944338s; animation-duration: 4.17783s;"></div><div class="star" style="left: 70.3996%; top: 72.1523%; animation-delay: 2.70099s; animation-duration: 3.38373s;"></div><div class="star" style="left: 65.1249%; top: 42.9112%; animation-delay: 2.4435s; animation-duration: 4.03254s;"></div><div class="star" style="left: 45.0224%; top: 6.58343%; animation-delay: 2.60252s; animation-duration: 4.0507s;"></div><div class="star" style="left: 97.8276%; top: 94.012%; animation-delay: 2.68186s; animation-duration: 2.65521s;"></div><div class="star" style="left: 39.3473%; top: 70.1038%; animation-delay: 2.18885s; animation-duration: 3.82679s;"></div><div class="star" style="left: 68.9769%; top: 53.9975%; animation-delay: 3.60421s; animation-duration: 2.04676s;"></div><div class="star" style="left: 86.6628%; top: 81.8861%; animation-delay: 3.41197s; animation-duration: 4.68407s;"></div><div class="star" style="left: 41.8074%; top: 59.0322%; animation-delay: 1.5132s; animation-duration: 2.23645s;"></div><div class="star" style="left: 82.7402%; top: 52.116%; animation-delay: 1.24623s; animation-duration: 4.45515s;"></div><div class="star" style="left: 43.0677%; top: 70.9988%; animation-delay: 3.23977s; animation-duration: 4.60688s;"></div><div class="star" style="left: 16.663%; top: 17.6839%; animation-delay: 1.00963s; animation-duration: 3.83438s;"></div><div class="star" style="left: 2.68536%; top: 62.9642%; animation-delay: 3.02838s; animation-duration: 4.21339s;"></div><div class="star" style="left: 96.4004%; top: 99.7726%; animation-delay: 2.12806s; animation-duration: 4.69436s;"></div><div class="star" style="left: 1.44524%; top: 83.7688%; animation-delay: 1.59055s; animation-duration: 2.03775s;"></div><div class="star" style="left: 89.9572%; top: 92.9917%; animation-delay: 2.10992s; animation-duration: 4.72059s;"></div><div class="star" style="left: 0.640364%; top: 22.0874%; animation-delay: 2.40521s; animation-duration: 3.35707s;"></div><div class="star" style="left: 9.10744%; top: 85.4489%; animation-delay: 3.15148s; animation-duration: 3.52539s;"></div><div class="star" style="left: 74.0636%; top: 28.1972%; animation-delay: 1.77562s; animation-duration: 4.57639s;"></div><div class="star" style="left: 63.1482%; top: 11.1933%; animation-delay: 1.2191s; animation-duration: 4.84584s;"></div><div class="star" style="left: 1.65422%; top: 21.69%; animation-delay: 0.775462s; animation-duration: 2.8105s;"></div><div class="star" style="left: 5.50102%; top: 20.5506%; animation-delay: 2.3534s; animation-duration: 3.93309s;"></div></div>
   <div class="cover-ornament">✦ ✦ ✦</div>
   <div class="cover-subtitle">Travel Guide 2026</div>
@@ -1813,6 +1800,17 @@ function refresh() {
 
 /* ══ 初期化 ══ */
 buildTodo();
+
+// トップページ表示中のみcover-bgとstarsを表示
+function updateCoverBg() {
+  const coverH = document.querySelector('.cover').offsetHeight;
+  const scrollY = window.scrollY;
+  const visible = scrollY < coverH;
+  document.querySelector('.cover-bg').style.display = visible ? 'block' : 'none';
+  document.querySelector('.stars').style.display = visible ? 'block' : 'none';
+}
+window.addEventListener('scroll', updateCoverBg, { passive: true });
+updateCoverBg();
 buildMemos();
 buildSecrets();
 updateCurrentHighlight();
