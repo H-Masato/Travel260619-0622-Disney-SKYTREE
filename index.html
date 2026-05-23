@@ -20,10 +20,10 @@
     --border: rgba(201,149,42,0.25);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* Safe Area対応：htmlに紺色を設定することで
+     viewport-fit=coverで拡張されたノッチ周辺領域が紺色になる */
   html {
     background: var(--navy);
-    /* Safe Areaを含む全領域に背景を適用 */
-    min-height: 100%;
   }
   body {
     background: var(--cream);
@@ -32,16 +32,6 @@
     font-weight: 300;
     overflow-x: hidden;
     overscroll-behavior-y: none;
-    /* ステータスバー領域（Safe Area上部）を紺色で埋める */
-    padding-top: env(safe-area-inset-top);
-    margin-top: 0;
-    /* padding分をcoverで上書きするため背景はnavyから始める */
-    background-image: linear-gradient(
-      to bottom,
-      var(--navy) 0,
-      var(--navy) env(safe-area-inset-top),
-      var(--cream) env(safe-area-inset-top)
-    );
   }
 
   /* ── COVER ── */
@@ -51,11 +41,11 @@
     background: var(--navy);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     position: relative; overflow: hidden;
-    padding: 60px 24px;
-    /* Safe Area分を差し引く（body側でpadding-top済みのため） */
-    padding-top: 60px;
+    /* Safe Areaを含むpaddingで自然に繋がって見えるようにする */
+    padding-top: calc(60px + env(safe-area-inset-top));
     padding-bottom: calc(80px + env(safe-area-inset-bottom));
-    margin-top: calc(-1 * env(safe-area-inset-top));
+    padding-left: calc(24px + env(safe-area-inset-left));
+    padding-right: calc(24px + env(safe-area-inset-right));
     margin-bottom: -2px;
   }
   .cover::before {
