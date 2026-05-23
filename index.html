@@ -24,17 +24,18 @@
   body { background: var(--cream); color: var(--text); font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 300; overflow-x: hidden; overscroll-behavior-y: none; }
 
   /* ── COVER ── */
-  /* ノッチ裏まで紺色背景を広げるfixedレイヤー（トップページ表示中のみ有効） */
   .cover-bg {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0; left: 0; right: 0;
+    height: 100vh;
     background: var(--navy);
     z-index: -1;
+    pointer-events: none;
   }
   .cover {
     min-height: 100vh;
     min-height: 100dvh;
-    background: transparent;
+    background: var(--navy);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     position: relative; overflow: hidden;
     padding: 60px 24px;
@@ -47,7 +48,7 @@
     background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(201,149,42,0.12) 0%, transparent 70%),
                 radial-gradient(ellipse 60% 80% at 20% 80%, rgba(111,163,192,0.08) 0%, transparent 60%);
   }
-  .stars { position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 0; }
+  .stars { position: absolute; inset: 0; pointer-events: none; }
   .star { position: absolute; width: 2px; height: 2px; background: rgba(255,255,255,0.6); border-radius: 50%; animation: twinkle 3s infinite alternate; }
   @keyframes twinkle { from { opacity: 0.2; transform: scale(1); } to { opacity: 1; transform: scale(1.4); } }
   .cover-ornament { font-size: 2rem; color: var(--gold); letter-spacing: 0.3em; opacity: 0.7; animation: fadeDown 1s ease both; margin-bottom: 24px; }
@@ -1800,17 +1801,6 @@ function refresh() {
 
 /* ══ 初期化 ══ */
 buildTodo();
-
-// トップページ表示中のみcover-bgとstarsを表示
-function updateCoverBg() {
-  const coverH = document.querySelector('.cover').offsetHeight;
-  const scrollY = window.scrollY;
-  const visible = scrollY < coverH;
-  document.querySelector('.cover-bg').style.display = visible ? 'block' : 'none';
-  document.querySelector('.stars').style.display = visible ? 'block' : 'none';
-}
-window.addEventListener('scroll', updateCoverBg, { passive: true });
-updateCoverBg();
 buildMemos();
 buildSecrets();
 updateCurrentHighlight();
