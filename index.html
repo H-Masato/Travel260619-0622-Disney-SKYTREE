@@ -20,10 +20,10 @@
     --border: rgba(201,149,42,0.25);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  /* Safe Area対応：htmlに紺色を設定することで
-     viewport-fit=coverで拡張されたノッチ周辺領域が紺色になる */
+  /* ── ノッチ対応（iOS Safari）──
+     ノッチ裏は白固定のため、html背景を白にして自然に繋げる */
   html {
-    background: var(--navy);
+    background: #ffffff;
   }
   body {
     background: var(--cream);
@@ -41,12 +41,26 @@
     background: var(--navy);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     position: relative; overflow: hidden;
-    /* Safe Areaを含むpaddingで自然に繋がって見えるようにする */
+    /* コンテンツをノッチと重ならない位置に下げる */
     padding-top: calc(60px + env(safe-area-inset-top));
     padding-bottom: calc(80px + env(safe-area-inset-bottom));
     padding-left: calc(24px + env(safe-area-inset-left));
     padding-right: calc(24px + env(safe-area-inset-right));
     margin-bottom: -2px;
+  }
+  /* 白（ノッチ裏）から紺色へ自然につながるグラデーションを上部に重ねる */
+  .cover::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: calc(env(safe-area-inset-top) + 32px);
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.35) 0%,
+      rgba(255, 255, 255, 0.0) 100%
+    );
+    pointer-events: none;
+    z-index: 2;
   }
   .cover::before {
     content: ''; position: absolute; inset: 0;
