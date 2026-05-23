@@ -3,7 +3,6 @@
 <html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="color-scheme" content="dark">
 <title>TDL旅のしおり ✦ 2026.6.19–22</title>
 <link href="./TDL旅のしおり ✦ 2025.6.19–22_files/css2" rel="stylesheet">
 <style>
@@ -21,8 +20,8 @@
     --border: rgba(201,149,42,0.25);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { background: var(--navy); overscroll-behavior-y: none; }
-  body { background: var(--navy); color: var(--text); font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 300; overflow-x: hidden; overscroll-behavior-y: none; }
+  html { background: var(--navy); }
+  body { background: var(--cream); color: var(--text); font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 300; overflow-x: hidden; overscroll-behavior-y: none; }
 
   /* ── COVER ── */
   .cover {
@@ -37,7 +36,8 @@
   }
   .cover::before {
     content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(201,149,42,0.12) 0%, transparent 70%),
+    background: linear-gradient(to bottom, var(--navy) 0%, transparent 8%),
+                radial-gradient(ellipse 80% 60% at 50% 30%, rgba(201,149,42,0.12) 0%, transparent 70%),
                 radial-gradient(ellipse 60% 80% at 20% 80%, rgba(111,163,192,0.08) 0%, transparent 60%);
   }
   .stars { position: absolute; inset: 0; pointer-events: none; }
@@ -58,7 +58,7 @@
   @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
 
   /* ── CONTENT ── */
-  .content { max-width: 860px; margin: 0 auto; padding: 80px 24px; background: var(--cream); }
+  .content { max-width: 860px; margin: 0 auto; padding: 80px 24px; }
 
   /* ── TODO SECTION ── */
   .todo-section {
@@ -260,6 +260,9 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
+    /* カバーとコンテンツの隙間（padding-top: 80px 部分）を夜空色で埋める */
+    .content { background: linear-gradient(to bottom, var(--navy) 80px, var(--cream) 80px); }
+
     .cover-dates { font-size: clamp(0.75rem, 3.8vw, 1rem); letter-spacing: 0.05em; white-space: nowrap; }
     .todo-section { margin-bottom: 28px; }
     .day-header { padding-bottom: 12px; }
