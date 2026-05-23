@@ -3,6 +3,9 @@
 <html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0f1a2e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>TDL旅のしおり ✦ 2026.6.19–22</title>
 <link href="./TDL旅のしおり ✦ 2025.6.19–22_files/css2" rel="stylesheet">
 <style>
@@ -21,7 +24,7 @@
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { background: var(--navy); }
-  body { background: var(--cream); color: var(--text); font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 300; overflow-x: hidden; overscroll-behavior-y: none; }
+  body { background: var(--cream); color: var(--text); font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 300; overflow-x: hidden; overscroll-behavior-y: none; background-image: linear-gradient(to bottom, var(--navy) 0px, var(--navy) 100vh, var(--cream) 100vh); }
 
   /* ── COVER ── */
   .cover {
@@ -32,12 +35,22 @@
     position: relative; overflow: hidden;
     padding: 60px 24px;
     padding-top: calc(60px + env(safe-area-inset-top));
-    padding-bottom: calc(60px + env(safe-area-inset-bottom));
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
+    /* Safariアドレスバー下の白を隠すためmargin-bottomで延長 */
+    margin-bottom: -2px;
   }
   .cover::before {
     content: ''; position: absolute; inset: 0;
     background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(201,149,42,0.12) 0%, transparent 70%),
                 radial-gradient(ellipse 60% 80% at 20% 80%, rgba(111,163,192,0.08) 0%, transparent 60%);
+  }
+  /* ステータスバーとの境目を自然にする上部オーバーレイ */
+  .cover::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: calc(60px + env(safe-area-inset-top));
+    background: linear-gradient(to bottom, var(--navy) 40%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
   }
   .stars { position: absolute; inset: 0; pointer-events: none; }
   .star { position: absolute; width: 2px; height: 2px; background: rgba(255,255,255,0.6); border-radius: 50%; animation: twinkle 3s infinite alternate; }
