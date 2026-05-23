@@ -289,6 +289,8 @@
   @media (max-width: 600px) {
     .cover { padding-bottom: calc(320px + env(safe-area-inset-bottom)); }
     .cover-scroll { position: absolute; bottom: 210px; left: 50%; transform: translateX(-50%); }
+    .footer { font-size: 0.65rem; letter-spacing: 0.08em; }
+    .footer div { white-space: nowrap; }
     .cover-dates { font-size: clamp(0.75rem, 3.8vw, 1rem); letter-spacing: 0.05em; white-space: nowrap; }    .todo-section { margin-bottom: 12px; }
     .day-block { margin-top: 12px; margin-bottom: 12px; }
     .day-header { padding-bottom: 12px; }
@@ -639,7 +641,7 @@
   </div><!-- /day1 -->
 
   <!-- ══ DAY 2 ══ -->
-  <div class="day-block visible" id="day2" data-date="2026-06-20">
+  <div class="day-block" id="day2" data-date="2026-06-20">
     <div class="day-header" onclick="toggleDay(&#39;day2&#39;)">
       <div class="day-header-inner">
         <div class="day-label">Day 2</div>
@@ -1071,7 +1073,7 @@
   </div><!-- /day2 -->
 
   <!-- ══ DAY 3 ══ -->
-  <div class="day-block visible" id="day3" data-date="2026-06-21">
+  <div class="day-block" id="day3" data-date="2026-06-21">
     <div class="day-header" onclick="toggleDay(&#39;day3&#39;)">
       <div class="day-header-inner">
         <div class="day-label">Day 3</div>
@@ -1276,7 +1278,7 @@
   </div><!-- /day3 -->
 
   <!-- ══ DAY 4 ══ -->
-  <div class="day-block visible" id="day4" data-date="2026-06-22">
+  <div class="day-block" id="day4" data-date="2026-06-22">
     <div class="day-header" onclick="toggleDay(&#39;day4&#39;)">
       <div class="day-header-inner">
         <div class="day-label">Day 4</div>
@@ -1838,6 +1840,9 @@ buildTodo();
 buildMemos();
 buildSecrets();
 updateCurrentHighlight();
+
+// TODO LISTを初期状態で閉じる
+document.getElementById('todoSection').classList.add('collapsed');
 
 // 現在の予定があるDAY以外を折りたたむ
 document.querySelectorAll('.day-block').forEach(dayBlock => {
