@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)file:///C:/Users/masat/Downloads/tdl_travel_guide_1.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TDL旅のしおり ✦ 2026.6.19–22</title>
+<link href="./TDL旅のしおり ✦ 2025.6.19–22_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9952a;
+    --gold-light: #f0c96a;
+    --gold-pale: #fdf5e0;
+    --navy: #0f1a2e;
+    --navy-mid: #1c2e4a;
+    --cream: #faf7f0;
+    --text: #2a1f0e;
+    --muted: #7a6a55;
+    --accent-pink: #e8a0b0;
+    --accent-blue: #6fa3c0;
+    --border: rgba(201,149,42,0.25);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--cream); color: var(--text); font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh; background: var(--navy);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; padding: 60px 24px;
+  }
+  .cover::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(201,149,42,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 80% at 20% 80%, rgba(111,163,192,0.08) 0%, transparent 60%);
+  }
+  .stars { position: absolute; inset: 0; pointer-events: none; }
+  .star { position: absolute; width: 2px; height: 2px; background: rgba(255,255,255,0.6); border-radius: 50%; animation: twinkle 3s infinite alternate; }
+  @keyframes twinkle { from { opacity: 0.2; transform: scale(1); } to { opacity: 1; transform: scale(1.4); } }
+  .cover-ornament { font-size: 2rem; color: var(--gold); letter-spacing: 0.3em; opacity: 0.7; animation: fadeDown 1s ease both; margin-bottom: 24px; }
+  .cover-subtitle { font-weight: 300; font-size: 0.85rem; letter-spacing: 0.4em; color: var(--gold-light); animation: fadeDown 1s 0.1s ease both; margin-bottom: 20px; }
+  .cover-title { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(3rem, 10vw, 6.5rem); color: #fff; line-height: 1; text-align: center; animation: fadeDown 1s 0.2s ease both; z-index: 1; }
+  .cover-title span { color: var(--gold-light); }
+  .cover-divider { display: flex; align-items: center; gap: 16px; margin: 28px 0; animation: fadeDown 1s 0.35s ease both; }
+  .cover-divider-line { flex: 1; max-width: 120px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .cover-diamond { color: var(--gold); font-size: 0.6rem; }
+  .cover-dates { font-family: 'Shippori Mincho', serif; font-size: clamp(1rem, 3vw, 1.4rem); color: rgba(255,255,255,0.8); letter-spacing: 0.2em; animation: fadeDown 1s 0.45s ease both; text-align: center; }
+  .cover-members { margin-top: 36px; animation: fadeDown 1s 0.6s ease both; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+  .member-badge { background: rgba(201,149,42,0.15); border: 1px solid rgba(201,149,42,0.4); border-radius: 40px; padding: 8px 20px; color: var(--gold-light); font-size: 0.85rem; letter-spacing: 0.15em; }
+  .cover-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.4); font-size: 0.7rem; letter-spacing: 0.3em; animation: bounce 2s infinite; }
+  @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ── CONTENT ── */
+  .content { max-width: 860px; margin: 0 auto; padding: 80px 24px; }
+
+  /* ── TODO SECTION ── */
+  .todo-section {
+    margin-bottom: 72px;
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .todo-section.visible { opacity: 1; transform: translateY(0); }
+  .todo-section-header {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 24px;
+    cursor: pointer; user-select: none;
+  }
+  .todo-section-header:hover .todo-section-title { color: var(--gold); }
+  .todo-section-label { display: inline-block; background: #3a6040; color: #a8e0b0; font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.3em; padding: 6px 18px; border-radius: 4px; }
+  .todo-section-title { font-family: 'Shippori Mincho', serif; font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; color: var(--navy); transition: color 0.2s; }
+  .todo-toggle-icon { color: var(--gold); font-size: 1rem; transition: transform 0.35s ease; margin-left: auto; }
+  .todo-section.collapsed .todo-toggle-icon { transform: rotate(-90deg); }
+  .todo-body { overflow: hidden; max-height: 9999px; transition: max-height 0.5s ease, opacity 0.4s ease; opacity: 1; }
+  .todo-section.collapsed .todo-body { max-height: 0; opacity: 0; }
+
+  .todo-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px;
+  }
+  .todo-category {
+    background: rgba(201,149,42,0.04); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 18px;
+  }
+  .todo-category-title {
+    font-family: 'Shippori Mincho', serif; font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.2em; color: var(--gold); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .todo-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 8px 0; border-bottom: 1px solid rgba(201,149,42,0.1);
+    font-size: 0.85rem; line-height: 1.5;
+  }
+  .todo-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .todo-check {
+    width: 18px; height: 18px; border-radius: 4px; border: 2px solid var(--border);
+    flex-shrink: 0; cursor: pointer; margin-top: 1px; appearance: none;
+    background: transparent; transition: all 0.2s; position: relative;
+  }
+  .todo-check:checked { background: var(--gold); border-color: var(--gold); }
+  .todo-check:checked::after { content: '✓'; position: absolute; top: -1px; left: 2px; font-size: 0.75rem; color: #fff; font-weight: 700; }
+  .todo-text { flex: 1; }
+  .todo-text.done { text-decoration: line-through; color: var(--muted); opacity: 0.6; }
+  .todo-sub { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+  .todo-link { font-size: 0.7rem; color: var(--accent-blue); text-decoration: none; display: inline-block; margin-top: 2px; }
+  .todo-link:hover { text-decoration: underline; }
+
+  /* ── DAY BLOCK ── */
+  .day-block { margin-bottom: 64px; opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .day-block.visible { opacity: 1; transform: translateY(0); }
+  .day-header { display: flex; align-items: flex-start; gap: 0; position: relative; cursor: pointer; user-select: none; padding-bottom: 24px; }
+  .day-header:hover .day-title { color: var(--gold); }
+  .day-header-inner { flex: 1; }
+  .day-number { font-family: 'Shippori Mincho', serif; font-size: 5rem; font-weight: 800; color: var(--navy); line-height: 1; opacity: 0.08; position: absolute; right: 0; top: -10px; user-select: none; }
+  .day-label { display: inline-block; background: var(--navy); color: var(--gold-light); font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.3em; padding: 6px 18px; border-radius: 4px; margin-bottom: 8px; }
+  .day-title { font-family: 'Shippori Mincho', serif; font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; color: var(--navy); line-height: 1.2; transition: color 0.2s; }
+  .day-date { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.25em; margin-top: 4px; }
+  .day-toggle-icon { margin-left: 16px; color: var(--gold); font-size: 1rem; transition: transform 0.35s ease; flex-shrink: 0; margin-top: 36px; }
+  .day-block.collapsed .day-toggle-icon { transform: rotate(-90deg); }
+  .day-body { overflow: hidden; max-height: 9999px; transition: max-height 0.5s ease, opacity 0.4s ease; opacity: 1; }
+  .day-block.collapsed .day-body { max-height: 0; opacity: 0; }
+
+  /* ── TIMELINE ── */
+  .timeline { 
+    --line-x: 28px; /* 線の中心位置（最大陰影20pxが切れないように調整） */
+    --dot-size: 12px;
+    --padding-left: 32px;
+    position: relative; 
+    padding-left: var(--padding-left); 
+    overflow: visible;
+  }
+  .timeline::before { 
+    content: ''; 
+    position: absolute; 
+    left: var(--line-x); 
+    top: 0; 
+    bottom: 0; 
+    width: 2px; 
+    background: linear-gradient(to bottom, var(--gold), rgba(201,149,42,0.1)); 
+    transform: translateX(-50%);
+    z-index: 1; 
+  }
+  .timeline-item { position: relative; display: grid; grid-template-columns: 80px 1fr; gap: 24px; align-items: start; padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .timeline-item:last-child { border-bottom: none; }
+
+  /* ドット: すべて○、線の上に重なる */
+  .timeline-dot { position: absolute; left: calc(var(--line-x) - var(--padding-left)); top: 23px; width: var(--dot-size); height: var(--dot-size); border-radius: 50%; border: 2px solid var(--gold); background: var(--cream); transform: translateX(-50%); z-index: 3; box-sizing: border-box; box-shadow: 0 0 0 4px rgba(201,149,42,0.22); }
+  .timeline-item.highlight .timeline-dot { border-color: var(--gold); box-shadow: 0 0 0 4px rgba(201,149,42,0.22); }
+
+  /* 現在進行中 */
+  .timeline-item.current-item { background: linear-gradient(90deg, rgba(201,149,42,0.08), transparent); border-radius: 8px; }
+  .timeline-item.current-item .timeline-dot { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 0 5px rgba(201,149,42,0.25), 0 0 12px rgba(201,149,42,0.5); animation: pulse-dot 2s infinite; }
+  .timeline-item.current-item .timeline-time { color: var(--gold); font-weight: 700; }
+  @keyframes pulse-dot { 0%,100% { box-shadow: 0 0 0 5px rgba(201,149,42,0.25), 0 0 12px rgba(201,149,42,0.5); } 50% { box-shadow: 0 0 0 8px rgba(201,149,42,0.15), 0 0 20px rgba(201,149,42,0.7); } }
+  .current-label { display: inline-block; background: var(--gold); color: #fff; font-size: 0.62rem; letter-spacing: 0.15em; padding: 2px 8px; border-radius: 10px; margin-left: 5px; vertical-align: middle; font-weight: 700; animation: blink-label 2s infinite; position: relative; top: -2px; }
+  @keyframes blink-label { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+  .timeline-time { font-family: 'Shippori Mincho', serif; font-size: 0.9rem; font-weight: 600; color: var(--gold); letter-spacing: 0.05em; padding-top: 2px; white-space: nowrap; margin-left: 11px; }
+  .timeline-label { font-size: 0.72rem; font-weight: 400; letter-spacing: 0.2em; color: var(--muted); margin-bottom: 2px; }
+  .timeline-event { font-family: 'Shippori Mincho', serif; font-size: 1.05rem; font-weight: 600; color: var(--navy); line-height: 1.5; }
+  .timeline-item.highlight .timeline-event { color: var(--gold); font-size: 1.1rem; }
+
+  /* 移動ルート */
+  .route { display: inline-flex; align-items: center; gap: 6px; font-family: 'Shippori Mincho', serif; font-size: 1.0rem; font-weight: 600; color: var(--navy); line-height: 1.5; flex-wrap: wrap; }
+  .route-arrow { color: var(--accent-blue); font-size: 0.75rem; flex-shrink: 0; margin: 0 2px; }
+
+  /* 場所+内容 */
+  .place-event { font-family: 'Shippori Mincho', serif; }
+  .place-name { font-size: 0.8rem; color: var(--muted); font-weight: 400; display: block; margin-bottom: 1px; letter-spacing: 0.1em; }
+  .place-action { font-size: 1.05rem; font-weight: 600; color: var(--navy); display: block; }
+  .timeline-item.highlight .place-action { color: var(--gold); }
+
+  .timeline-note { font-size: 0.8rem; color: var(--muted); margin-top: 6px; padding: 6px 10px; background: rgba(201,149,42,0.06); border-left: 2px solid var(--gold-light); border-radius: 0 4px 4px 0; line-height: 1.6; }
+  .timeline-duration { font-size: 0.72rem; color: var(--accent-blue); margin-top: 3px; letter-spacing: 0.05em; }
+
+  .badge { display: inline-block; font-size: 0.65rem; letter-spacing: 0.15em; padding: 2px 8px; border-radius: 20px; margin-top: 4px; font-weight: 700; }
+  .badge-move  { background: rgba(111,163,192,0.15); color: var(--accent-blue); }
+  .badge-rest  { background: rgba(201,149,42,0.12);  color: var(--gold); }
+  .badge-enjoy { background: rgba(232,160,176,0.18); color: #c06080; }
+  .badge-food  { background: rgba(150,200,120,0.15); color: #5a9a40; }
+
+  /* ── 隠し店名 ── */
+  .secret-reveal { margin-top: 6px; }
+  .secret-btn { display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, var(--navy), var(--navy-mid)); color: var(--gold-light); border: 1px solid rgba(201,149,42,0.5); border-radius: 6px; padding: 6px 14px; font-family: 'Shippori Mincho', serif; font-size: 0.82rem; letter-spacing: 0.15em; cursor: pointer; transition: all 0.25s; }
+  .secret-btn-row1 { display: inline-flex; align-items: center; gap: 6px; }
+  .secret-btn-row2 { display: inline-flex; align-items: center; gap: 2px; }
+  .secret-countdown-timer { font-size: 0.7rem; color: rgba(240,201,106,0.6); letter-spacing: 0.05em; }
+  .secret-btn:hover:not(:disabled) { border-color: var(--gold); box-shadow: 0 2px 12px rgba(201,149,42,0.25); }
+  .secret-btn:disabled { opacity: 0.45; cursor: not-allowed; filter: grayscale(0.5); }
+  .secret-countdown { font-size: 0.7rem; color: rgba(240,201,106,0.6); letter-spacing: 0.05em; }
+  .secret-name-revealed { display: none; font-family: 'Shippori Mincho', serif; font-size: 1.0rem; font-weight: 700; color: var(--gold); padding: 6px 0; letter-spacing: 0.1em; width: fit-content; }
+  .secret-name-revealed.visible { display: inline-block; }
+
+  /* きらきら */
+  .sparkle-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; overflow: hidden; }
+  .sparkle-particle { position: absolute; border-radius: 50%; background: radial-gradient(circle, #fff8dc, var(--gold-light), var(--gold)); animation: sparkle-anim var(--dur,1.6s) ease-out forwards; }
+  @keyframes sparkle-anim { 0% { transform: translate(0,0) scale(0) rotate(0deg); opacity:0; } 20% { transform: translate(calc(var(--tx)*0.3),calc(var(--ty)*0.3)) scale(1) rotate(calc(var(--rot)*0.3)); opacity:0.9; } var(--fade-start) { transform: translate(calc(var(--tx)*0.8),calc(var(--ty)*0.8)) scale(0.95) rotate(calc(var(--rot)*0.7)); opacity:0.7; } 100% { transform: translate(var(--tx),var(--ty)) scale(0.3) rotate(var(--rot)); opacity:0; } }
+  .sparkle-star { position: absolute; font-size: var(--sz,16px); animation: star-anim var(--dur,1.8s) ease-out forwards; transform-origin: center; pointer-events: none; }
+  @keyframes star-anim { 0% { transform: translate(0,0) scale(0) rotate(0deg); opacity:0; } 25% { transform: translate(calc(var(--tx)*0.4),calc(var(--ty)*0.4)) scale(1.1) rotate(calc(var(--rot)*0.4)); opacity:0.95; } 65% { transform: translate(calc(var(--tx)*0.85),calc(var(--ty)*0.85)) scale(1) rotate(calc(var(--rot)*0.75)); opacity:0.6; } 100% { transform: translate(var(--tx),var(--ty)) scale(0.4) rotate(var(--rot)); opacity:0; } }
+
+  /* ── メモ ── */
+  .memo-section { margin-top: 8px; }
+  .memo-toggle { display: inline-flex; align-items: center; gap: 5px; background: none; border: 1px dashed rgba(201,149,42,0.4); color: var(--muted); font-size: 0.72rem; letter-spacing: 0.15em; padding: 4px 10px; border-radius: 20px; cursor: pointer; font-family: 'Zen Kaku Gothic New', sans-serif; transition: all 0.2s; }
+  .memo-toggle:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,149,42,0.05); }
+  .memo-box { display: none; margin-top: 8px; }
+  .memo-box.open { display: block; }
+  .memo-textarea { width: 100%; min-height: 72px; padding: 10px 12px; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 0.82rem; font-weight: 300; color: var(--text); background: rgba(201,149,42,0.04); border: 1px solid rgba(201,149,42,0.3); border-radius: 6px; resize: vertical; line-height: 1.7; outline: none; transition: border-color 0.2s; }
+  .memo-textarea:focus { border-color: var(--gold); background: rgba(201,149,42,0.07); }
+  .memo-textarea::placeholder { color: rgba(122,106,85,0.45); }
+  .memo-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 6px; align-items: center; }
+  .memo-btn { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; padding: 4px 12px; border-radius: 4px; cursor: pointer; border: 1px solid transparent; transition: all 0.18s; }
+  .memo-btn-save { background: var(--navy); color: var(--gold-light); border-color: var(--navy); }
+  .memo-btn-save:hover { background: var(--navy-mid); }
+  .memo-btn-clear { background: transparent; color: var(--muted); border-color: rgba(122,106,85,0.3); }
+  .memo-btn-clear:hover { color: #c04040; border-color: #c04040; }
+  .memo-saved-label { font-size: 0.68rem; color: var(--gold); letter-spacing: 0.1em; margin-right: auto; opacity: 0; transition: opacity 0.4s; }
+  .memo-saved-label.show { opacity: 1; }
+
+  /* ── FAB ── */
+  .fab-now { position: fixed; bottom: 28px; right: 24px; background: var(--navy); color: var(--gold-light); border: 1px solid rgba(201,149,42,0.5); border-radius: 40px; padding: 10px 18px; display: flex; align-items: center; gap: 8px; font-family: 'Shippori Mincho', serif; font-size: 0.78rem; letter-spacing: 0.15em; cursor: pointer; box-shadow: 0 4px 20px rgba(15,26,46,0.35); transition: all 0.25s; z-index: 500; }
+  .fab-now:hover { background: var(--navy-mid); border-color: var(--gold); }
+  .fab-todo { position: fixed; bottom: 28px; right: 24px; background: var(--navy); color: var(--gold-light); border: 1px solid rgba(201,149,42,0.5); border-radius: 40px; padding: 10px 18px; display: flex; align-items: center; gap: 8px; font-family: 'Shippori Mincho', serif; font-size: 0.78rem; letter-spacing: 0.15em; cursor: pointer; box-shadow: 0 4px 20px rgba(15,26,46,0.35); transition: all 0.25s; z-index: 500; }
+  .fab-todo:hover { background: var(--navy-mid); border-color: var(--gold); }
+
+  /* ── デバッグ ── */
+  .debug-panel { display: none; position: fixed; bottom: 80px; left: 24px; background: var(--navy); border: 1px solid var(--gold); border-radius: 10px; padding: 16px 20px; z-index: 600; box-shadow: 0 8px 32px rgba(0,0,0,0.4); min-width: 260px; }
+  .debug-panel.open { display: block; }
+  .debug-title { font-family: 'Shippori Mincho', serif; font-size: 0.8rem; color: var(--gold-light); letter-spacing: 0.2em; margin-bottom: 10px; }
+  .debug-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .debug-label { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.1em; white-space: nowrap; }
+  .debug-input { background: rgba(255,255,255,0.06); border: 1px solid rgba(201,149,42,0.4); border-radius: 4px; color: var(--gold-light); font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 0.82rem; padding: 4px 8px; width: 120px; outline: none; }
+  .debug-input:focus { border-color: var(--gold); }
+  .debug-apply { width: 100%; margin-top: 4px; background: rgba(201,149,42,0.18); color: var(--gold-light); border: 1px solid rgba(201,149,42,0.5); border-radius: 4px; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; padding: 6px; cursor: pointer; transition: all 0.2s; }
+  .debug-apply:hover { background: rgba(201,149,42,0.3); }
+  .debug-reset { width: 100%; margin-top: 6px; background: transparent; color: var(--muted); border: 1px solid rgba(122,106,85,0.3); border-radius: 4px; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 0.72rem; padding: 5px; cursor: pointer; transition: all 0.2s; }
+  .debug-reset:hover { color: #c04040; border-color: #c04040; }
+  .debug-current-time { font-size: 0.7rem; color: rgba(240,201,106,0.6); margin-top: 8px; text-align: center; }
+  .fab-debug { position: fixed; bottom: 28px; left: 24px; background: rgba(15,26,46,0.85); color: rgba(201,149,42,0.6); border: 1px dashed rgba(201,149,42,0.3); border-radius: 40px; padding: 10px 18px; font-size: 0.78rem; letter-spacing: 0.15em; cursor: pointer; z-index: 500; font-family: 'Zen Kaku Gothic New', sans-serif; transition: all 0.2s; }
+  .fab-debug:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* ── WIP ── */
+  .wip-banner { background: linear-gradient(135deg, #1c2e4a, #0f1a2e); border: 1px solid rgba(201,149,42,0.3); border-radius: 12px; padding: 20px 28px; margin-bottom: 60px; display: flex; align-items: center; gap: 16px; }
+  .wip-icon { font-size: 1.6rem; }
+  .wip-text { color: var(--gold-light); font-size: 0.85rem; line-height: 1.6; letter-spacing: 0.05em; }
+  .wip-text strong { display: block; font-size: 0.95rem; margin-bottom: 2px; color: #fff; }
+
+  /* ── フリータイムブロック ── */
+  .freetime-block { background: linear-gradient(135deg, rgba(201,149,42,0.05), transparent); border: 1px dashed rgba(201,149,42,0.3); border-radius: 8px; padding: 10px 14px; margin-top: 6px; }
+  .freetime-label { font-size: 0.7rem; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 4px; }
+  .freetime-note { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── FOOTER ── */
+  .footer { background: var(--navy); color: rgba(255,255,255,0.4); text-align: center; padding: 48px 24px; font-size: 0.75rem; letter-spacing: 0.2em; }
+  .footer-logo { font-family: 'Shippori Mincho', serif; font-size: 1.3rem; color: var(--gold); margin-bottom: 12px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .cover-dates { font-size: clamp(0.75rem, 3.8vw, 1rem); letter-spacing: 0.05em; white-space: nowrap; }
+    .todo-section { margin-bottom: 28px; }
+    .day-header { padding-bottom: 12px; }
+
+    .timeline { 
+      --line-x: 22px;
+      --padding-left: 24px;
+      padding-left: var(--padding-left); 
+    }
+    .timeline-item { grid-template-columns: 60px 1fr; gap: 12px; }
+    .timeline-time { font-size: 0.78rem; margin-left: 6px; }
+    .timeline-event { font-size: 0.9rem; }
+    .timeline-label { font-size: 0.65rem; }
+    .timeline-note { font-size: 0.72rem; }
+    .timeline-duration { font-size: 0.65rem; }
+    .place-name { font-size: 0.7rem; }
+    .place-action { font-size: 0.9rem; }
+    .route { font-size: 0.88rem; }
+    .badge { font-size: 0.6rem; padding: 1px 6px; }
+
+    /* DAYヘッダー */
+    .day-number { display: none; }
+    .day-label { font-size: 0.68rem; padding: 4px 12px; }
+    .day-title { font-size: 1.1rem; }
+    .day-date { font-size: 0.72rem; }
+
+    /* TODOリスト */
+    .todo-grid { grid-template-columns: 1fr; }
+    .todo-section-title { font-size: 1.3rem; }
+    .todo-item { font-size: 0.8rem; }
+    .todo-category-title { font-size: 0.72rem; }
+
+    /* FABボタン */
+    .fab-now { font-size: 0.7rem; padding: 8px 14px; gap: 5px; bottom: 20px; right: 16px; }
+    .fab-todo { font-size: 0.7rem; padding: 8px 14px; gap: 5px; right: 16px; }
+    .fab-debug { font-size: 0.7rem; padding: 8px 14px; bottom: 20px; left: 16px; }
+    .debug-panel { right: auto; left: 16px; bottom: 68px; min-width: 220px; }
+
+    /* (2) 隠し店名ボタンを段組みに */
+    .secret-btn {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      padding: 8px 12px;
+    }
+    .secret-btn-row1 { gap: 4px; }
+    .secret-btn-row2 {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      font-size: 0.6rem;
+      letter-spacing: 0.04em;
+    }
+    .secret-countdown, .secret-countdown-timer {
+      font-size: inherit;
+      white-space: nowrap;
+    }
+
+    /* (3) NOW表示 */
+    .current-label {
+      display: block;
+      font-size: 0.55rem;
+      padding: 2px 0;
+      margin-left: 0;
+      margin-top: 3px;
+      top: 0;
+      width: 100%;
+      text-align: center;
+      border-radius: 4px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="sparkle-container" id="sparkleContainer"></div>
+
+<!-- ── COVER ── -->
+<section class="cover">
+  <div class="stars" id="stars"><div class="star" style="left: 89.3177%; top: 36.6281%; animation-delay: 1.32822s; animation-duration: 3.44465s;"></div><div class="star" style="left: 30.915%; top: 23.7963%; animation-delay: 0.352297s; animation-duration: 4.74846s;"></div><div class="star" style="left: 92.2755%; top: 28.4113%; animation-delay: 3.28026s; animation-duration: 4.79781s;"></div><div class="star" style="left: 23.9584%; top: 88.5907%; animation-delay: 3.89107s; animation-duration: 2.13253s;"></div><div class="star" style="left: 93.2782%; top: 63.4333%; animation-delay: 0.247753s; animation-duration: 2.02577s;"></div><div class="star" style="left: 62.731%; top: 13.9501%; animation-delay: 0.710092s; animation-duration: 2.65081s;"></div><div class="star" style="left: 78.3297%; top: 66.9572%; animation-delay: 2.55895s; animation-duration: 4.93768s;"></div><div class="star" style="left: 44.3347%; top: 87.001%; animation-delay: 3.13365s; animation-duration: 4.7734s;"></div><div class="star" style="left: 22.9129%; top: 22.8058%; animation-delay: 3.65366s; animation-duration: 4.90764s;"></div><div class="star" style="left: 59.6484%; top: 85.1181%; animation-delay: 1.69509s; animation-duration: 2.01283s;"></div><div class="star" style="left: 6.24302%; top: 54.4575%; animation-delay: 2.66367s; animation-duration: 4.60347s;"></div><div class="star" style="left: 57.865%; top: 63.5637%; animation-delay: 1.71004s; animation-duration: 4.66321s;"></div><div class="star" style="left: 27.213%; top: 38.3507%; animation-delay: 0.906056s; animation-duration: 2.27811s;"></div><div class="star" style="left: 67.9593%; top: 67.655%; animation-delay: 2.81784s; animation-duration: 4.64721s;"></div><div class="star" style="left: 47.1029%; top: 65.6476%; animation-delay: 2.99974s; animation-duration: 4.74878s;"></div><div class="star" style="left: 88.6771%; top: 84.6965%; animation-delay: 3.22347s; animation-duration: 3.68404s;"></div><div class="star" style="left: 27.7537%; top: 39.069%; animation-delay: 2.81802s; animation-duration: 3.78544s;"></div><div class="star" style="left: 92.6546%; top: 15.4388%; animation-delay: 1.29792s; animation-duration: 2.98896s;"></div><div class="star" style="left: 99.6087%; top: 41.3966%; animation-delay: 2.318s; animation-duration: 4.7227s;"></div><div class="star" style="left: 20.6283%; top: 76.5979%; animation-delay: 3.36944s; animation-duration: 2.09899s;"></div><div class="star" style="left: 78.8401%; top: 61.4712%; animation-delay: 0.75413s; animation-duration: 4.08582s;"></div><div class="star" style="left: 18.1004%; top: 9.97859%; animation-delay: 0.531017s; animation-duration: 4.74725s;"></div><div class="star" style="left: 61.2634%; top: 9.39254%; animation-delay: 2.93538s; animation-duration: 3.76536s;"></div><div class="star" style="left: 98.0731%; top: 65.1857%; animation-delay: 2.11041s; animation-duration: 4.32192s;"></div><div class="star" style="left: 65.399%; top: 96.9852%; animation-delay: 3.40732s; animation-duration: 2.8756s;"></div><div class="star" style="left: 27.8549%; top: 26.7329%; animation-delay: 0.888168s; animation-duration: 4.00972s;"></div><div class="star" style="left: 99.3751%; top: 57.8566%; animation-delay: 2.89499s; animation-duration: 3.42192s;"></div><div class="star" style="left: 52.4626%; top: 88.9543%; animation-delay: 2.31329s; animation-duration: 3.05056s;"></div><div class="star" style="left: 92.7003%; top: 96.8225%; animation-delay: 1.99717s; animation-duration: 3.33336s;"></div><div class="star" style="left: 77.5262%; top: 99.9099%; animation-delay: 3.8127s; animation-duration: 4.78758s;"></div><div class="star" style="left: 35.6168%; top: 40.5137%; animation-delay: 1.52685s; animation-duration: 2.61533s;"></div><div class="star" style="left: 90.9335%; top: 29.2013%; animation-delay: 1.58569s; animation-duration: 4.9919s;"></div><div class="star" style="left: 65.3152%; top: 14.2686%; animation-delay: 1.39256s; animation-duration: 4.99147s;"></div><div class="star" style="left: 97.1507%; top: 97.1437%; animation-delay: 0.868411s; animation-duration: 2.4676s;"></div><div class="star" style="left: 27.1634%; top: 61.4773%; animation-delay: 1.70565s; animation-duration: 2.0836s;"></div><div class="star" style="left: 81.2513%; top: 71.6021%; animation-delay: 3.8625s; animation-duration: 4.36021s;"></div><div class="star" style="left: 35.8858%; top: 80.5497%; animation-delay: 1.08842s; animation-duration: 3.08211s;"></div><div class="star" style="left: 1.98084%; top: 92.9423%; animation-delay: 1.87111s; animation-duration: 4.30782s;"></div><div class="star" style="left: 86.5667%; top: 25.4372%; animation-delay: 3.94669s; animation-duration: 3.2531s;"></div><div class="star" style="left: 80.5504%; top: 99.3155%; animation-delay: 0.829354s; animation-duration: 3.71343s;"></div><div class="star" style="left: 95.9007%; top: 73.8913%; animation-delay: 1.91315s; animation-duration: 3.02741s;"></div><div class="star" style="left: 11.9578%; top: 76.1216%; animation-delay: 2.5617s; animation-duration: 3.94828s;"></div><div class="star" style="left: 32.9275%; top: 79.9788%; animation-delay: 2.6982s; animation-duration: 4.84288s;"></div><div class="star" style="left: 9.42232%; top: 50.0787%; animation-delay: 3.18201s; animation-duration: 4.53747s;"></div><div class="star" style="left: 32.4117%; top: 72.2702%; animation-delay: 1.93313s; animation-duration: 2.0094s;"></div><div class="star" style="left: 42.8282%; top: 94.1146%; animation-delay: 2.55483s; animation-duration: 4.20952s;"></div><div class="star" style="left: 26.7272%; top: 22.8012%; animation-delay: 2.03727s; animation-duration: 3.75203s;"></div><div class="star" style="left: 11.0952%; top: 59.329%; animation-delay: 1.25855s; animation-duration: 3.14946s;"></div><div class="star" style="left: 20.2173%; top: 69.8574%; animation-delay: 1.56151s; animation-duration: 2.09622s;"></div><div class="star" style="left: 38.3159%; top: 49.7801%; animation-delay: 2.03984s; animation-duration: 4.17777s;"></div><div class="star" style="left: 75.2969%; top: 79.0443%; animation-delay: 3.14538s; animation-duration: 2.85446s;"></div><div class="star" style="left: 26.5529%; top: 91.0974%; animation-delay: 1.50993s; animation-duration: 3.71488s;"></div><div class="star" style="left: 10.7767%; top: 59.4004%; animation-delay: 0.510674s; animation-duration: 2.4828s;"></div><div class="star" style="left: 73.4827%; top: 87.8027%; animation-delay: 2.13396s; animation-duration: 3.05515s;"></div><div class="star" style="left: 55.696%; top: 22.7801%; animation-delay: 3.16234s; animation-duration: 3.00493s;"></div><div class="star" style="left: 11.9633%; top: 46.4432%; animation-delay: 1.35816s; animation-duration: 2.42319s;"></div><div class="star" style="left: 42.3269%; top: 38.7627%; animation-delay: 0.544029s; animation-duration: 2.40313s;"></div><div class="star" style="left: 7.07964%; top: 96.2767%; animation-delay: 2.01524s; animation-duration: 3.46371s;"></div><div class="star" style="left: 59.6938%; top: 5.39467%; animation-delay: 0.944338s; animation-duration: 4.17783s;"></div><div class="star" style="left: 70.3996%; top: 72.1523%; animation-delay: 2.70099s; animation-duration: 3.38373s;"></div><div class="star" style="left: 65.1249%; top: 42.9112%; animation-delay: 2.4435s; animation-duration: 4.03254s;"></div><div class="star" style="left: 45.0224%; top: 6.58343%; animation-delay: 2.60252s; animation-duration: 4.0507s;"></div><div class="star" style="left: 97.8276%; top: 94.012%; animation-delay: 2.68186s; animation-duration: 2.65521s;"></div><div class="star" style="left: 39.3473%; top: 70.1038%; animation-delay: 2.18885s; animation-duration: 3.82679s;"></div><div class="star" style="left: 68.9769%; top: 53.9975%; animation-delay: 3.60421s; animation-duration: 2.04676s;"></div><div class="star" style="left: 86.6628%; top: 81.8861%; animation-delay: 3.41197s; animation-duration: 4.68407s;"></div><div class="star" style="left: 41.8074%; top: 59.0322%; animation-delay: 1.5132s; animation-duration: 2.23645s;"></div><div class="star" style="left: 82.7402%; top: 52.116%; animation-delay: 1.24623s; animation-duration: 4.45515s;"></div><div class="star" style="left: 43.0677%; top: 70.9988%; animation-delay: 3.23977s; animation-duration: 4.60688s;"></div><div class="star" style="left: 16.663%; top: 17.6839%; animation-delay: 1.00963s; animation-duration: 3.83438s;"></div><div class="star" style="left: 2.68536%; top: 62.9642%; animation-delay: 3.02838s; animation-duration: 4.21339s;"></div><div class="star" style="left: 96.4004%; top: 99.7726%; animation-delay: 2.12806s; animation-duration: 4.69436s;"></div><div class="star" style="left: 1.44524%; top: 83.7688%; animation-delay: 1.59055s; animation-duration: 2.03775s;"></div><div class="star" style="left: 89.9572%; top: 92.9917%; animation-delay: 2.10992s; animation-duration: 4.72059s;"></div><div class="star" style="left: 0.640364%; top: 22.0874%; animation-delay: 2.40521s; animation-duration: 3.35707s;"></div><div class="star" style="left: 9.10744%; top: 85.4489%; animation-delay: 3.15148s; animation-duration: 3.52539s;"></div><div class="star" style="left: 74.0636%; top: 28.1972%; animation-delay: 1.77562s; animation-duration: 4.57639s;"></div><div class="star" style="left: 63.1482%; top: 11.1933%; animation-delay: 1.2191s; animation-duration: 4.84584s;"></div><div class="star" style="left: 1.65422%; top: 21.69%; animation-delay: 0.775462s; animation-duration: 2.8105s;"></div><div class="star" style="left: 5.50102%; top: 20.5506%; animation-delay: 2.3534s; animation-duration: 3.93309s;"></div></div>
+  <div class="cover-ornament">✦ ✦ ✦</div>
+  <div class="cover-subtitle">Travel Guide 2026</div>
+  <h1 class="cover-title"><span>TDL</span><br>旅のしおり</h1>
+  <div class="cover-divider">
+    <div class="cover-divider-line"></div>
+    <div class="cover-diamond">◆</div>
+    <div class="cover-divider-line"></div>
+  </div>
+  <div class="cover-dates">2026年 6月19日（金）〜 6月22日（日）</div>
+  <div class="cover-members">
+    <span class="member-badge">🚗 彦根出発</span>
+    <span class="member-badge">🏰 シェラトン泊</span>
+    <span class="member-badge">🎢 東京ディズニーランド</span>
+    <span class="member-badge">🗼 スカイツリー</span>
+  </div>
+  <div class="cover-scroll">▼ scroll</div>
+</section>
+
+<!-- ── MAIN ── -->
+<main class="content">
+
+  <!-- ══ TODO リスト ══ -->
+  <div class="todo-section" id="todoSection">
+    <div class="todo-section-header" onclick="toggleSection(&#39;todoSection&#39;)">
+      <div>
+        <div class="todo-section-label">TODO LIST</div>
+        <div class="todo-section-title" style="font-family:&#39;Shippori Mincho&#39;,serif;">やりたいことリスト 🎯</div>
+      </div>
+      <div class="todo-toggle-icon">▼</div>
+    </div>
+    <div class="todo-body">
+      <div class="todo-grid" id="todoGrid">
+        <!-- JSで描画 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DAY 1 ══ -->
+  <div class="day-block" id="day1" data-date="2026-06-19">
+    <div class="day-header" onclick="toggleDay(&#39;day1&#39;)">
+      <div class="day-header-inner">
+        <div class="day-label">Day 1</div>
+        <div class="day-title">いざ、出発！夜の高速ドライブ</div>
+        <div class="day-date">2026年6月19日（金）</div>
+      </div>
+      <div class="day-toggle-icon">▼</div>
+      <div class="day-number">01</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+
+        <div class="timeline-item highlight" data-start="18:00" data-end="18:15">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">18:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">集合</div>
+            <div class="timeline-event">🏠 彦根に集合</div>
+            <div class="timeline-note">💬 りまちゃん着予定 18:20</div>
+            <span class="badge badge-rest">集合</span>
+            <div class="memo-section" data-memo-id="d1-1800">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d1-1800&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d1-1800">
+        <textarea class="memo-textarea" id="memotext-d1-1800" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d1-1800">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d1-1800&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d1-1800&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="18:15" data-end="18:45">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">18:15</div>
+          <div class="timeline-body">
+            <div class="timeline-label">準備</div>
+            <div class="timeline-event">🚿 お風呂タイム</div>
+            <div class="timeline-duration">⏱ 30分</div>
+            <span class="badge badge-rest">準備</span>
+            <div class="memo-section" data-memo-id="d1-1815">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d1-1815&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d1-1815">
+        <textarea class="memo-textarea" id="memotext-d1-1815" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d1-1815">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d1-1815&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d1-1815&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="18:45" data-end="19:30">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">18:45</div>
+          <div class="timeline-body">
+            <div class="timeline-label">移動</div>
+            <div class="route"><span>🚗 彦根</span><span class="route-arrow">▶</span><span>尾張一宮SA</span></div>
+            <div class="timeline-duration">⏱ 45分</div>
+            <span class="badge badge-move">移動</span>
+            <div class="memo-section" data-memo-id="d1-1845">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d1-1845&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d1-1845">
+        <textarea class="memo-textarea" id="memotext-d1-1845" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d1-1845">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d1-1845&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d1-1845&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="20:30" data-end="21:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">20:30</div>
+          <div class="timeline-body">
+            <div class="timeline-label">休憩① 食事</div>
+            <div class="place-event">
+              <span class="place-name">📍 尾張一宮SA</span>
+              <span class="place-action">🍽 晩ごはん</span>
+            </div>
+            <div class="timeline-duration">⏱ 30分</div>
+            <div class="timeline-note">☕ 頑張ったらスタバも！（21:00まで営業）</div>
+            <span class="badge badge-food">食事</span>
+            <div class="memo-section" data-memo-id="d1-2030">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d1-2030&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d1-2030">
+        <textarea class="memo-textarea" id="memotext-d1-2030" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d1-2030">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d1-2030&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d1-2030&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="21:00" data-end="22:30">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">21:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">移動</div>
+            <div class="route"><span>🚗 尾張一宮SA</span><span class="route-arrow">▶</span><span>浜松SA</span></div>
+            <div class="timeline-duration">⏱ 1時間30分</div>
+            <span class="badge badge-move">移動</span>
+            <div class="memo-section" data-memo-id="d1-2100">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d1-2100&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d1-2100">
+        <textarea class="memo-textarea" id="memotext-d1-2100" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d1-2100">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d1-2100&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d1-2100&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="22:30" data-end="22:40">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">22:30</div>
+          <div class="timeline-body">
+            <div class="timeline-label">休憩②</div>
+            <div class="place-event">
+              <span class="place-name">📍 浜松SA</span>
+              <span class="place-action">☕ 小休憩</span>
+            </div>
+            <div class="timeline-duration">⏱ 10分</div>
+            <span class="badge badge-rest">休憩</span>
+            <div class="memo-section" data-memo-id="d1-2230">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d1-2230&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d1-2230">
+        <textarea class="memo-textarea" id="memotext-d1-2230" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d1-2230">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d1-2230&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d1-2230&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="22:40" data-end="23:40">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">22:40</div>
+          <div class="timeline-body">
+            <div class="timeline-label">移動</div>
+            <div class="route"><span>🚗 浜松SA</span><span class="route-arrow">▶</span><span>清水SA</span></div>
+            <div class="timeline-duration">⏱ 1時間</div>
+            <span class="badge badge-move">移動</span>
+            <div class="memo-section" data-memo-id="d1-2240">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d1-2240&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d1-2240">
+        <textarea class="memo-textarea" id="memotext-d1-2240" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d1-2240">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d1-2240&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d1-2240&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="23:40" data-end="23:50">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">23:40</div>
+          <div class="timeline-body">
+            <div class="timeline-label">休憩③</div>
+            <div class="place-event">
+              <span class="place-name">📍 清水SA</span>
+              <span class="place-action">🌙 小休憩</span>
+            </div>
+            <div class="timeline-duration">⏱ 10分</div>
+            <span class="badge badge-rest">休憩</span>
+            <div class="memo-section" data-memo-id="d1-2340">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d1-2340&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d1-2340">
+        <textarea class="memo-textarea" id="memotext-d1-2340" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d1-2340">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d1-2340&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d1-2340&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="23:50" data-end="24:30">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">23:50</div>
+          <div class="timeline-body">
+            <div class="timeline-label">移動</div>
+            <div class="route"><span>🚗 清水SA</span><span class="route-arrow">▶</span><span>足柄SA</span></div>
+            <div class="timeline-duration">⏱ 40分</div>
+            <span class="badge badge-move">移動</span>
+            <div class="memo-section" data-memo-id="d1-2350">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d1-2350&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d1-2350">
+        <textarea class="memo-textarea" id="memotext-d1-2350" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d1-2350">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d1-2350&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d1-2350&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div><!-- /day1 -->
+
+  <!-- ══ DAY 2 ══ -->
+  <div class="day-block visible" id="day2" data-date="2026-06-20">
+    <div class="day-header" onclick="toggleDay(&#39;day2&#39;)">
+      <div class="day-header-inner">
+        <div class="day-label">Day 2</div>
+        <div class="day-title">夢の王国へ！ディズニーランド DAY</div>
+        <div class="day-date">2026年6月20日（土）</div>
+      </div>
+      <div class="day-toggle-icon">▼</div>
+      <div class="day-number">02</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+
+        <div class="timeline-item" data-start="00:30" data-end="00:40">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">00:30</div>
+          <div class="timeline-body">
+            <div class="timeline-label">休憩④</div>
+            <div class="place-event">
+              <span class="place-name">📍 足柄SA</span>
+              <span class="place-action">🌙 小休憩</span>
+            </div>
+            <div class="timeline-duration">⏱ 10分</div>
+            <span class="badge badge-rest">休憩</span>
+            <div class="memo-section" data-memo-id="d2-0030">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d2-0030&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d2-0030">
+        <textarea class="memo-textarea" id="memotext-d2-0030" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d2-0030">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d2-0030&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d2-0030&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="00:40" data-end="01:20">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">00:40</div>
+          <div class="timeline-body">
+            <div class="timeline-label">移動</div>
+            <div class="route"><span>🚗 足柄SA</span><span class="route-arrow">▶</span><span>海老名SA</span></div>
+            <div class="timeline-duration">⏱ 40分</div>
+            <span class="badge badge-move">移動</span>
+            <div class="memo-section" data-memo-id="d2-0040">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d2-0040&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d2-0040">
+        <textarea class="memo-textarea" id="memotext-d2-0040" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d2-0040">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d2-0040&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d2-0040&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="01:20" data-end="01:40">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">01:20</div>
+          <div class="timeline-body">
+            <div class="timeline-label">休憩⑤ 朝食調達</div>
+            <div class="place-event">
+              <span class="place-name">📍 海老名SA</span>
+              <span class="place-action">🛒 朝食調達</span>
+            </div>
+            <div class="timeline-duration">⏱ 20分</div>
+            <div class="timeline-note">🍞 成城石井で朝ごはんを調達！</div>
+            <span class="badge badge-food">食事</span>
+            <div class="memo-section" data-memo-id="d2-0120">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d2-0120&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d2-0120">
+        <textarea class="memo-textarea" id="memotext-d2-0120" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d2-0120">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d2-0120&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d2-0120&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="01:40" data-end="02:30">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">01:40</div>
+          <div class="timeline-body">
+            <div class="timeline-label">移動</div>
+            <div class="route"><span>🚗 海老名SA</span><span class="route-arrow">▶</span><span>シェラトン</span></div>
+            <div class="timeline-duration">⏱ 50分</div>
+            <span class="badge badge-move">移動</span>
+            <div class="memo-section" data-memo-id="d2-0140">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d2-0140&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d2-0140">
+        <textarea class="memo-textarea" id="memotext-d2-0140" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d2-0140">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d2-0140&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d2-0140&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item highlight" data-start="02:30" data-end="05:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">02:30</div>
+          <div class="timeline-body">
+            <div class="timeline-label">仮眠</div>
+            <div class="place-event">
+              <span class="place-name">📍 シェラトン</span>
+              <span class="place-action">🛏 仮眠タイム</span>
+            </div>
+            <div class="timeline-duration">⏱ 2時間30分</div>
+            <span class="badge badge-rest">仮眠</span>
+            <div class="memo-section" data-memo-id="d2-0230">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d2-0230&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d2-0230">
+        <textarea class="memo-textarea" id="memotext-d2-0230" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d2-0230">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d2-0230&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d2-0230&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="05:00" data-end="06:30">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">05:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">準備</div>
+            <div class="timeline-event">🌅 起床・朝食・チェックイン</div>
+            <div class="timeline-duration">⏱ 1時間30分</div>
+            <span class="badge badge-rest">準備</span>
+            <div class="memo-section" data-memo-id="d2-0500">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d2-0500&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d2-0500">
+        <textarea class="memo-textarea" id="memotext-d2-0500" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d2-0500">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d2-0500&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d2-0500&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="06:30" data-end="07:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">06:30</div>
+          <div class="timeline-body">
+            <div class="timeline-label">移動</div>
+            <div class="route"><span>🚕 シェラトン</span><span class="route-arrow">▶</span><span>TDL</span></div>
+            <div class="timeline-duration">⏱ 30分</div>
+            <div class="timeline-note">🚖 タクシーで移動</div>
+            <span class="badge badge-move">移動</span>
+            <div class="memo-section" data-memo-id="d2-0630">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d2-0630&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d2-0630">
+        <textarea class="memo-textarea" id="memotext-d2-0630" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d2-0630">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d2-0630&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d2-0630&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="07:00" data-end="09:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">07:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">待機</div>
+            <div class="place-event">
+              <span class="place-name">📍 TDL 入口</span>
+              <span class="place-action">⏳ 入園待ち</span>
+            </div>
+            <div class="timeline-duration">⏱ 2時間</div>
+            <span class="badge badge-rest">待機</span>
+            <div class="memo-section" data-memo-id="d2-0700">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d2-0700&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d2-0700">
+        <textarea class="memo-textarea" id="memotext-d2-0700" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d2-0700">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d2-0700&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d2-0700&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item highlight" data-start="09:00" data-end="11:10">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">09:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">フリータイム①</div>
+            <div class="timeline-event">🎢 フリータイム①</div>
+            <div class="timeline-duration">⏱ 2時間10分</div>
+            <div class="timeline-note">🌹 ワッフル予約 → 美女と野獣エリアへ！</div>
+            <span class="badge badge-enjoy">アトラクション</span>
+            <div class="memo-section" data-memo-id="d2-0900">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d2-0900&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d2-0900">
+        <textarea class="memo-textarea" id="memotext-d2-0900" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d2-0900">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d2-0900&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d2-0900&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <!-- ランチ（店名隠し / 解禁07:00） -->
+        <div class="timeline-item" data-start="11:10" data-end="12:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">11:10</div>
+          <div class="timeline-body">
+            <div class="timeline-label">食事</div>
+            <div class="timeline-event">🍴 ランチ</div>
+            <div class="timeline-duration">⏱ 50分</div>
+            <div class="secret-reveal" data-secret="ブルーバイユー・レストラン" data-unlock-hhmm="08:00" data-unlock-date="2026-06-20" data-secret-id="secret-lunch">
+      <button class="secret-btn" id="sbtn-secret-lunch" onclick="tryReveal(&#39;secret-lunch&#39;)" style="display: none;">
+        <span>🔒</span>
+        <span id="sbtn-label-secret-lunch">タップして確認 ✦</span>
+        <span class="secret-countdown" id="sbtn-cd-secret-lunch"></span>
+      </button>
+      <div class="secret-name-revealed visible" id="sname-secret-lunch">🍽 ブルーバイユー・レストラン</div></div>
+            <span class="badge badge-food">食事</span>
+            <div class="memo-section" data-memo-id="d2-1110">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d2-1110&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d2-1110">
+        <textarea class="memo-textarea" id="memotext-d2-1110" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d2-1110">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d2-1110&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d2-1110&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="12:00" data-end="14:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">12:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">ショッピング</div>
+            <div class="timeline-event">🛍 お土産タイム</div>
+            <div class="timeline-duration">⏱ 2時間</div>
+            <div class="timeline-note">🔒 ロッカーに預ける</div>
+            <span class="badge badge-enjoy">お土産</span>
+            <div class="memo-section" data-memo-id="d2-1200">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d2-1200&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d2-1200">
+        <textarea class="memo-textarea" id="memotext-d2-1200" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d2-1200">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d2-1200&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d2-1200&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item highlight" data-start="14:00" data-end="15:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">14:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">スイーツ</div>
+            <div class="timeline-event">🧇 ワッフルタイム！</div>
+            <div class="timeline-duration">⏱ 1時間</div>
+            <span class="badge badge-food">スイーツ</span>
+            <div class="memo-section" data-memo-id="d2-1400">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d2-1400&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d2-1400">
+        <textarea class="memo-textarea" id="memotext-d2-1400" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d2-1400">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d2-1400&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d2-1400&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item highlight" data-start="15:00" data-end="18:10">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">15:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">フリータイム②</div>
+            <div class="timeline-event">🎡 フリータイム②</div>
+            <div class="timeline-duration">⏱ 3時間10分</div>
+            <span class="badge badge-enjoy">アトラクション</span>
+            <div class="memo-section" data-memo-id="d2-1500">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d2-1500&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d2-1500">
+        <textarea class="memo-textarea" id="memotext-d2-1500" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d2-1500">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d2-1500&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d2-1500&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <!-- ディナー（店名隠し / 解禁15:00） -->
+        <div class="timeline-item" data-start="18:10" data-end="19:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">18:10</div>
+          <div class="timeline-body">
+            <div class="timeline-label">食事</div>
+            <div class="timeline-event">🍽 ディナー</div>
+            <div class="timeline-duration">⏱ 50分</div>
+            <div class="secret-reveal" data-secret="れすとらん北斎" data-unlock-hhmm="15:00" data-unlock-date="2026-06-20" data-secret-id="secret-dinner">
+      <button class="secret-btn" id="sbtn-secret-dinner" onclick="tryReveal(&#39;secret-dinner&#39;)" style="display: none;">
+        <span>🔒</span>
+        <span id="sbtn-label-secret-dinner">タップして確認 ✦</span>
+        <span class="secret-countdown" id="sbtn-cd-secret-dinner"></span>
+      </button>
+      <div class="secret-name-revealed visible" id="sname-secret-dinner">🍽 れすとらん北斎</div></div>
+            <span class="badge badge-food">食事</span>
+            <div class="memo-section" data-memo-id="d2-1810">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d2-1810&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d2-1810">
+        <textarea class="memo-textarea" id="memotext-d2-1810" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d2-1810">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d2-1810&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d2-1810&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item highlight" data-start="19:00" data-end="21:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">19:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">フリータイム③</div>
+            <div class="timeline-event">🌙 フリータイム③</div>
+            <div class="timeline-duration">⏱ 2時間</div>
+            <div class="timeline-note">✨ 19:15〜20:00 エレクトリカルパレード。DPA取る？</div>
+            <span class="badge badge-enjoy">アトラクション</span>
+            <div class="memo-section" data-memo-id="d2-1900">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d2-1900&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d2-1900">
+        <textarea class="memo-textarea" id="memotext-d2-1900" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d2-1900">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d2-1900&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d2-1900&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="21:00" data-end="21:30">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">21:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">退園</div>
+            <div class="timeline-event">🏰 退園・TDLさようなら</div>
+            <div class="timeline-duration">⏱ 30分</div>
+            <div class="timeline-note">🎒 ロッカーの荷物を回収。お忘れなく！</div>
+            <span class="badge badge-move">退園</span>
+            <div class="memo-section" data-memo-id="d2-2100">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d2-2100&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d2-2100">
+        <textarea class="memo-textarea" id="memotext-d2-2100" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d2-2100">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d2-2100&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d2-2100&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="21:30" data-end="22:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">21:30</div>
+          <div class="timeline-body">
+            <div class="timeline-label">移動</div>
+            <div class="route"><span>🚕 TDL</span><span class="route-arrow">▶</span><span>シェラトン</span></div>
+            <div class="timeline-duration">⏱ 30分</div>
+            <span class="badge badge-move">移動</span>
+            <div class="memo-section" data-memo-id="d2-2130">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d2-2130&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d2-2130">
+        <textarea class="memo-textarea" id="memotext-d2-2130" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d2-2130">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d2-2130&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d2-2130&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="22:00" data-end="31:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">22:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">ホテル着</div>
+            <div class="place-event">
+              <span class="place-name">📍 シェラトン</span>
+              <span class="place-action">🏨 おやすみちゃん…</span>
+            </div>
+            <span class="badge badge-rest">宿泊</span>
+            <div class="memo-section" data-memo-id="d2-2200">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d2-2200&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d2-2200">
+        <textarea class="memo-textarea" id="memotext-d2-2200" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d2-2200">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d2-2200&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d2-2200&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div><!-- /day2 -->
+
+  <!-- ══ DAY 3 ══ -->
+  <div class="day-block visible" id="day3" data-date="2026-06-21">
+    <div class="day-header" onclick="toggleDay(&#39;day3&#39;)">
+      <div class="day-header-inner">
+        <div class="day-label">Day 3</div>
+        <div class="day-title">舞浜 &amp; スカイツリー DAY</div>
+        <div class="day-date">2026年6月21日（日）</div>
+      </div>
+      <div class="day-toggle-icon">▼</div>
+      <div class="day-number">03</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+
+        <div class="timeline-item highlight" data-start="07:00" data-end="08:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">07:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">起床</div>
+            <div class="timeline-event">🌅 おはようさん</div>
+            <div class="timeline-duration">⏱ 1時間</div>
+            <span class="badge badge-rest">起床</span>
+            <div class="memo-section" data-memo-id="d3-0700">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d3-0700&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d3-0700">
+        <textarea class="memo-textarea" id="memotext-d3-0700" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d3-0700">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d3-0700&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d3-0700&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="08:00" data-end="09:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">08:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">食事</div>
+            <div class="place-event">
+              <span class="place-name">📍 シェラトン</span>
+              <span class="place-action">🍳 朝食</span>
+            </div>
+            <div class="timeline-duration">⏱ 1時間</div>
+            <div class="timeline-note">グランカフェ？選択肢あり。8:30〜10:00は混みやすいので早めに！</div>
+            <span class="badge badge-food">食事</span>
+            <div class="memo-section" data-memo-id="d3-0800">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d3-0800&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d3-0800">
+        <textarea class="memo-textarea" id="memotext-d3-0800" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d3-0800">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d3-0800&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d3-0800&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="09:00" data-end="11:30">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">09:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">散策</div>
+            <div class="timeline-event">🚶 舞浜エリアをゆっくり散策</div>
+            <div class="timeline-duration">⏱ 2時間30分</div>
+            <div class="timeline-note">ボンボヴォヤージュ、ランドホテル等をお散歩♪</div>
+            <span class="badge badge-enjoy">観光</span>
+            <div class="memo-section" data-memo-id="d3-0900">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d3-0900&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d3-0900">
+        <textarea class="memo-textarea" id="memotext-d3-0900" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d3-0900">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d3-0900&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d3-0900&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="11:30" data-end="12:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">11:30</div>
+          <div class="timeline-body">
+            <div class="timeline-label">チェックアウト</div>
+            <div class="place-event">
+              <span class="place-name">📍 シェラトン</span>
+              <span class="place-action">🧳 チェックアウト</span>
+            </div>
+            <div class="timeline-duration">⏱ 30分</div>
+            <span class="badge badge-rest">手続き</span>
+            <div class="memo-section" data-memo-id="d3-1130">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d3-1130&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d3-1130">
+        <textarea class="memo-textarea" id="memotext-d3-1130" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d3-1130">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d3-1130&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d3-1130&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="12:00" data-end="12:40">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">12:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">移動</div>
+            <div class="route"><span>🚗 シェラトン</span><span class="route-arrow">▶</span><span>第一ホテル両国</span></div>
+            <div class="timeline-duration">⏱ 40分</div>
+            <span class="badge badge-move">移動</span>
+            <div class="memo-section" data-memo-id="d3-1200">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d3-1200&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d3-1200">
+        <textarea class="memo-textarea" id="memotext-d3-1200" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d3-1200">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d3-1200&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d3-1200&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="12:40" data-end="13:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">12:40</div>
+          <div class="timeline-body">
+            <div class="timeline-label">荷物預け</div>
+            <div class="place-event">
+              <span class="place-name">📍 第一ホテル両国</span>
+              <span class="place-action">🧳 駐車・荷物預け</span>
+            </div>
+            <div class="timeline-duration">⏱ 20分</div>
+            <div class="timeline-note">チェックインは14:00以降</div>
+            <span class="badge badge-rest">手続き</span>
+            <div class="memo-section" data-memo-id="d3-1240">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d3-1240&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d3-1240">
+        <textarea class="memo-textarea" id="memotext-d3-1240" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d3-1240">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d3-1240&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d3-1240&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="13:00" data-end="13:30">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">13:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">移動</div>
+            <div class="route"><span>🚃 第一ホテル両国</span><span class="route-arrow">▶</span><span>スカイツリー</span></div>
+            <div class="timeline-duration">⏱ 30分</div>
+            <div class="timeline-note">JR両国→JR錦糸町、メトロ錦糸町→メトロ押上</div>
+            <span class="badge badge-move">電車</span>
+            <div class="memo-section" data-memo-id="d3-1300">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d3-1300&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d3-1300">
+        <textarea class="memo-textarea" id="memotext-d3-1300" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d3-1300">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d3-1300&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d3-1300&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item highlight" data-start="13:30" data-end="31:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">13:30</div>
+          <div class="timeline-body">
+            <div class="timeline-label">フリータイム</div>
+            <div class="place-event">
+              <span class="place-name">📍 東京スカイツリー&amp;周辺</span>
+              <span class="place-action">🗼 スカイツリー フリータイム！</span>
+            </div>
+            <div class="freetime-block">
+              <div class="freetime-label">🗓 やること</div>
+              <div class="freetime-note">✦ 雑貨屋さんめぐり<br>✦ スカイツリー展望台へ！<br>✦ 昼食・夕食は当日の気分で♪</div>
+            </div>
+            <span class="badge badge-enjoy">観光</span>
+            <div class="memo-section" data-memo-id="d3-1330">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d3-1330&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d3-1330">
+        <textarea class="memo-textarea" id="memotext-d3-1330" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d3-1330">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d3-1330&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d3-1330&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div><!-- /day3 -->
+
+  <!-- ══ DAY 4 ══ -->
+  <div class="day-block visible" id="day4" data-date="2026-06-22">
+    <div class="day-header" onclick="toggleDay(&#39;day4&#39;)">
+      <div class="day-header-inner">
+        <div class="day-label">Day 4</div>
+        <div class="day-title">いよいよ帰宅。また会う日まで！</div>
+        <div class="day-date">2026年6月22日（月）</div>
+      </div>
+      <div class="day-toggle-icon">▼</div>
+      <div class="day-number">04</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+
+        <div class="timeline-item highlight" data-start="07:00" data-end="08:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">07:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">起床</div>
+            <div class="timeline-event">🌅 おはよ〜さん</div>
+            <div class="timeline-duration">⏱ 1時間</div>
+            <span class="badge badge-rest">起床</span>
+            <div class="memo-section" data-memo-id="d4-0700">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d4-0700&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d4-0700">
+        <textarea class="memo-textarea" id="memotext-d4-0700" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d4-0700">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d4-0700&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d4-0700&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="08:00" data-end="09:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">08:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">食事</div>
+            <div class="timeline-event">🍳 朝食</div>
+            <div class="timeline-duration">⏱ 1時間</div>
+            <span class="badge badge-food">食事</span>
+            <div class="memo-section" data-memo-id="d4-0800">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d4-0800&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d4-0800">
+        <textarea class="memo-textarea" id="memotext-d4-0800" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d4-0800">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d4-0800&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d4-0800&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="09:00" data-end="11:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">09:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">チェックアウト前</div>
+            <div class="timeline-event">🛋 ゆっくりタイム</div>
+            <div class="timeline-duration">⏱ 2時間</div>
+            <span class="badge badge-rest">のんびり</span>
+            <div class="memo-section" data-memo-id="d4-0900">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d4-0900&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d4-0900">
+        <textarea class="memo-textarea" id="memotext-d4-0900" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d4-0900">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d4-0900&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d4-0900&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="11:00" data-end="18:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">11:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">移動</div>
+            <div class="route"><span>🚗 東京</span><span class="route-arrow">▶</span><span>りまちゃん家</span></div>
+            <div class="timeline-duration">⏱ 7時間（寄り道あり）</div>
+            <span class="badge badge-move">移動</span>
+            <div class="memo-section" data-memo-id="d4-1100">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d4-1100&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d4-1100">
+        <textarea class="memo-textarea" id="memotext-d4-1100" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d4-1100">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d4-1100&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d4-1100&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-start="18:00" data-end="20:00">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">19:00</div>
+          <div class="timeline-body">
+            <div class="timeline-label">帰宅</div>
+            <div class="route"><span>🚗 りまちゃん家</span><span class="route-arrow">▶</span><span>彦根（帰宅）</span></div>
+            <div class="timeline-duration">⏱ 1時間</div>
+            <div class="timeline-note">🎉 楽しい旅の思い出をありがとう！また行こうね。</div>
+            <span class="badge badge-move">帰宅</span>
+            <div class="memo-section" data-memo-id="d4-1900">
+      <button class="memo-toggle" onclick="toggleMemo(&#39;d4-1900&#39;)">✏️ メモを追加</button>
+      <div class="memo-box " id="memobox-d4-1900">
+        <textarea class="memo-textarea" id="memotext-d4-1900" placeholder="ここにメモを入力…"></textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-d4-1900">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo(&#39;d4-1900&#39;)">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo(&#39;d4-1900&#39;)">保存</button>
+        </div>
+      </div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div><!-- /day4 -->
+
+</main>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-logo">✦ TDL旅のしおり 2026 ✦</div>
+  <div>2026年 6月19日〜22日 ／ Have a magical time! 🏰</div>
+</footer>
+
+<!-- FABs -->
+<button class="fab-todo" id="fabTodo" onclick="scrollToTodo()"><span>🎯</span>やりたいこと</button>
+<button class="fab-now" id="fabNow" onclick="scrollToNow()" style="display:none;">
+  <span>📍</span>いまの予定
+</button>
+<button class="fab-debug" id="fabDebug" onclick="toggleDebug()">🔧 DEBUG</button>
+
+<div class="debug-panel" id="debugPanel">
+  <div class="debug-title">🔧 デバッグモード</div>
+  <div class="debug-row">
+    <span class="debug-label">日付</span>
+    <input class="debug-input" id="debugDate" type="date" value="2026-06-20">
+  </div>
+  <div class="debug-row">
+    <span class="debug-label">時刻</span>
+    <input class="debug-input" id="debugTime" type="time" value="12:00">
+  </div>
+  <button class="debug-apply" onclick="applyDebugTime()">この日時で確認</button>
+  <button class="debug-reset" onclick="resetDebugTime()">リセット（実時刻に戻す）</button>
+  <button class="debug-reset" onclick="resetSecrets()" style="margin-top:4px;color:#a06020;border-color:rgba(160,96,32,0.4);">🔒 隠し店名をリセット</button>
+  <div class="debug-current-time" id="debugCurrentTime">🕐 実時刻を使用中</div>
+</div>
+
+<script>
+/* ══ 状態 ══ */
+let debugDateTime = null;
+function getNow() { return debugDateTime ? new Date(debugDateTime) : new Date(); }
+
+/* ══ TODOデータ ══ */
+const TODO_DATA = [
+  {
+    category: "🎢 アトラクション",
+    colorClass: "enjoy",
+    items: [
+      { text: "美女と野獣" },
+      { text: "シューティングギャラリー" },
+      { text: "ピーター・パン" },
+    ]
+  },
+  {
+    category: "🎉 ショー・パレード",
+    colorClass: "enjoy",
+    items: [
+      { text: "エレクトリカルパレード", sub: "DPA買う？ちょっと見る？" },
+    ]
+  },
+  {
+    category: "🍽 フード",
+    colorClass: "food",
+    items: [
+      { text: "ミッキーワッフル 🧇" },
+      { text: "ポップコーン ハニー味 🍯" },
+      { text: "ティラミスカクテル 🍸", sub: "トルバドールタバン / アドベンチャーランド", link: "https://maps.app.goo.gl/VyTtVnAAYzjoPetE8", linkText: "📍 Googleマップ" },
+      { text: "スペシャルカクテル 🍸", sub: "ラム,アップルパイシロップ / ラ・タベルヌ・ド・ガストン / 美女と野獣", link: "https://maps.app.goo.gl/V652gCPb41crZt5Y9", linkText: "📍 Googleマップ" },
+    ]
+  },
+  {
+    category: "✨ その他",
+    colorClass: "rest",
+    items: [
+      { text: "バースデーシールGET 🎂", sub: "いっぱいもらおう♪" },
+      { text: "バスボム 🛁" },
+    ]
+  }
+];
+
+function buildTodo() {
+  const grid = document.getElementById('todoGrid');
+  TODO_DATA.forEach(cat => {
+    const div = document.createElement('div');
+    div.className = 'todo-category';
+    const catColors = { enjoy: '#c06080', food: '#5a9a40', rest: '#c9952a', move: '#6fa3c0' };
+    const color = catColors[cat.colorClass] || '#c9952a';
+    let html = `<div class="todo-category-title" style="color:${color}">${cat.category}</div>`;
+    cat.items.forEach((item, i) => {
+      const sid = `todo-${cat.category}-${i}`;
+      const checked = localStorage.getItem('todo:' + sid) === '1';
+      html += `<div class="todo-item">
+        <input type="checkbox" class="todo-check" id="${sid}" ${checked ? 'checked' : ''} onchange="saveTodo('${sid}',this)">
+        <div class="todo-text${checked ? ' done' : ''}" id="txt-${sid}">
+          ${item.text}
+          ${item.sub ? `<div class="todo-sub">${item.sub}</div>` : ''}
+          ${item.link ? `<a class="todo-link" href="${item.link}" target="_blank">${item.linkText}</a>` : ''}
+        </div>
+      </div>`;
+    });
+    div.innerHTML = html;
+    grid.appendChild(div);
+  });
+}
+
+function saveTodo(sid, el) {
+  localStorage.setItem('todo:' + sid, el.checked ? '1' : '0');
+  const txt = document.getElementById('txt-' + sid);
+  if (txt) txt.classList.toggle('done', el.checked);
+}
+
+/* ══ 折り畳み ══ */
+function toggleDay(id) { document.getElementById(id).classList.toggle('collapsed'); }
+function toggleSection(id) { document.getElementById(id).classList.toggle('collapsed'); }
+
+/* ══ 星 ══ */
+const starsEl = document.getElementById('stars');
+for (let i = 0; i < 80; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  s.style.left = Math.random() * 100 + '%';
+  s.style.top  = Math.random() * 100 + '%';
+  s.style.animationDelay = (Math.random() * 4) + 's';
+  s.style.animationDuration = (2 + Math.random() * 3) + 's';
+  starsEl.appendChild(s);
+}
+
+/* ══ スクロールイン ══ */
+const scrollObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); scrollObs.unobserve(e.target); } });
+}, { threshold: 0.05 });
+document.querySelectorAll('.day-block, .todo-section').forEach(el => scrollObs.observe(el));
+
+/* ══ メモ ══ */
+function buildMemos() {
+  document.querySelectorAll('.memo-section[data-memo-id]').forEach(section => {
+    const id = section.dataset.memoId;
+    const saved = localStorage.getItem('memo:' + id) || '';
+    section.innerHTML = `
+      <button class="memo-toggle" onclick="toggleMemo('${id}')">✏️ メモ${saved ? '（記入済）' : 'を追加'}</button>
+      <div class="memo-box ${saved ? 'open' : ''}" id="memobox-${id}">
+        <textarea class="memo-textarea" id="memotext-${id}" placeholder="ここにメモを入力…">${saved}</textarea>
+        <div class="memo-actions">
+          <span class="memo-saved-label" id="memosaved-${id}">✓ 保存しました</span>
+          <button class="memo-btn memo-btn-clear" onclick="clearMemo('${id}')">削除</button>
+          <button class="memo-btn memo-btn-save" onclick="saveMemo('${id}')">保存</button>
+        </div>
+      </div>`;
+  });
+}
+function toggleMemo(id) { document.getElementById('memobox-' + id).classList.toggle('open'); }
+function saveMemo(id) {
+  const val = document.getElementById('memotext-' + id).value;
+  localStorage.setItem('memo:' + id, val);
+  const btn = document.querySelector(`[data-memo-id="${id}"] .memo-toggle`);
+  if (btn) btn.textContent = val ? '✏️ メモ（記入済）' : '✏️ メモを追加';
+  const lbl = document.getElementById('memosaved-' + id);
+  lbl.classList.add('show');
+  setTimeout(() => lbl.classList.remove('show'), 2000);
+}
+function clearMemo(id) {
+  localStorage.removeItem('memo:' + id);
+  document.getElementById('memotext-' + id).value = '';
+  const btn = document.querySelector(`[data-memo-id="${id}"] .memo-toggle`);
+  if (btn) btn.textContent = '✏️ メモを追加';
+}
+
+/* ══ 隠し店名 ══ */
+function toMinutes(hhmm) { const [h, m] = hhmm.split(':').map(Number); return h * 60 + m; }
+
+function buildSecrets() {
+  document.querySelectorAll('.secret-reveal[data-secret]').forEach(el => {
+    const secret = el.dataset.secret;
+    const unlockDate = el.dataset.unlockDate;
+    const unlockHHMM = el.dataset.unlockHhmm;
+    const sid = el.dataset.secretId;
+    el.innerHTML = `
+      <button class="secret-btn" id="sbtn-${sid}" onclick="tryReveal('${sid}')">
+        <span class="secret-btn-row1"><span>🔒</span><span id="sbtn-label-${sid}">お楽しみ ✦ タップして確認</span></span>
+        <span class="secret-btn-row2"><span class="secret-countdown" id="sbtn-cd-${sid}"></span><span class="secret-countdown-timer" id="sbtn-timer-${sid}"></span></span>
+      </button>
+      <div class="secret-name-revealed" id="sname-${sid}">🍽 ${secret}</div>`;
+    updateSecretBtn(sid, unlockDate, unlockHHMM);
+  });
+}
+
+function updateSecretBtn(sid, unlockDate, unlockHHMM) {
+  const btn   = document.getElementById('sbtn-' + sid);
+  const cd    = document.getElementById('sbtn-cd-' + sid);
+  const timer = document.getElementById('sbtn-timer-' + sid);
+  const label = document.getElementById('sbtn-label-' + sid);
+  if (!btn) return;
+  const now = getNow();
+  const y = now.getFullYear();
+  const m = String(now.getMonth() + 1).padStart(2, '0');
+  const d = String(now.getDate()).padStart(2, '0');
+  const nowDate = `${y}-${m}-${d}`;
+  const nowMin  = now.getHours() * 60 + now.getMinutes();
+  const unlockMin = toMinutes(unlockHHMM);
+  let locked = true;
+  if (nowDate > unlockDate) locked = false;
+  else if (nowDate === unlockDate && nowMin >= unlockMin) locked = false;
+  btn.disabled = locked;
+  if (locked) {
+    label.textContent = 'お楽しみ ✦ タップして確認';
+    const remaining = unlockMin - nowMin;
+    const unlockStr = `（${unlockDate.slice(5).replace('-', '/')} ${unlockHHMM} 解禁）`;
+    cd.textContent = unlockStr;
+    if (timer) timer.textContent = (nowDate === unlockDate && remaining <= 60) ? `（あと約${remaining}分）` : '';
+  } else {
+    cd.textContent = '';
+    if (timer) timer.textContent = '';
+    label.textContent = 'タップして確認 ✦';
+  }
+}
+
+function tryReveal(sid) {
+  const nameEl = document.getElementById('sname-' + sid);
+  const btn    = document.getElementById('sbtn-' + sid);
+  if (btn.disabled || nameEl.classList.contains('visible')) return;
+  nameEl.classList.add('visible');
+  btn.style.display = 'none';
+  // レイアウト反映後に座標取得
+  requestAnimationFrame(() => {
+    const rect = nameEl.getBoundingClientRect();
+    launchSparkle(rect.left + rect.width / 2, rect.top + rect.height / 2);
+  });
+}
+
+/* ══ きらきら ══ */
+function launchSparkle(cx, cy) {
+  const container = document.getElementById('sparkleContainer');
+  const sparklesCount = 55; // Gemini版と同じ粒子数
+  const symbols = ['✦', '✧', '･ﾟ*', '·', '★', '˚', '₊', '◦']; // Gemini版と同じシンボル
+  const colors = [
+    '#ffe89c',                  // 輝くライトゴールド
+    '#f0c96a',                  // シャンパンゴールド
+    '#ffd700',                  // ブライトゴールド
+    '#e0ad3c',                  // ディープゴールド
+    '#ffffff',                  // 魔法を際立たせるためのハイライト純白
+    'rgba(240, 201, 106, 0.95)' // ゴールド透過カラー
+  ];
+
+  for (let i = 0; i < sparklesCount; i++) {
+    const sparkle = document.createElement('div');
+    sparkle.className = 'sparkle-star';
+    sparkle.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    
+    // 中央からX±70px、Y±20px以内のランダムな位置から出現
+    const offsetX = (Math.random() - 0.5) * 140;
+    const offsetY = (Math.random() - 0.5) * 40;
+    sparkle.style.left = (cx + offsetX) + 'px';
+    sparkle.style.top = (cy + offsetY) + 'px';
+
+    // ランダムな角度
+    const angle = Math.random() * Math.PI * 2;
+    
+    // 広い範囲に拡散
+    const distance = 30 + Math.random() * 80;
+    
+    // 横方向を少し強調（1.25倍）
+    const tx = Math.cos(angle) * distance * 1.25;
+    
+    // Y軸方向は上昇しながら拡散（-25px〜-40px）
+    const ty = Math.sin(angle) * distance - (25 + Math.random() * 15);
+    
+    // 回転角度
+    const rot = (Math.random() * 260) + 100;
+    
+    // アニメーション時間（1.6秒〜2.5秒）
+    const duration = 1.6 + Math.random() * 0.9;
+    
+    // 時間差（0〜0.5秒）
+    const delay = Math.random() * 0.5;
+    
+    // ゴールド系のカラー
+    sparkle.style.color = colors[Math.floor(Math.random() * colors.length)];
+    
+    // 粒子サイズ（0.25rem〜0.7rem）
+    const scale = 0.25 + Math.random() * 0.45;
+    sparkle.style.fontSize = scale + 'rem';
+    
+    // 発光効果
+    sparkle.style.filter = 'drop-shadow(0 0 3px rgba(255, 215, 120, 0.8)) drop-shadow(0 0 1px rgba(255, 255, 255, 0.9))';
+    
+    // アニメーション設定
+    sparkle.style.animation = `magic-sparkle-${i} ${duration}s ease-out ${delay}s both`;
+    
+    // 個別アニメーション生成
+    const keyframes = `@keyframes magic-sparkle-${i} {
+      0% { 
+        transform: translate(0, 0) scale(0) rotate(0deg); 
+        opacity: 0; 
+      }
+      8% { 
+        transform: translate(${tx * 0.08}px, ${ty * 0.08}px) scale(0.8) rotate(${rot * 0.08}deg); 
+        opacity: 0.9; 
+      }
+      15% { 
+        transform: translate(${tx * 0.15}px, ${ty * 0.15}px) scale(1.2) rotate(${rot * 0.2}deg); 
+        opacity: 1; 
+      }
+      50% { 
+        transform: translate(${tx * 0.6}px, ${ty * 0.6}px) scale(1) rotate(${rot * 0.6}deg); 
+        opacity: 0.85; 
+      }
+      75% { 
+        transform: translate(${tx * 0.85}px, ${ty * 0.85}px) scale(0.9) rotate(${rot * 0.85}deg); 
+        opacity: 0.4; 
+      }
+      100% { 
+        transform: translate(${tx}px, ${ty}px) scale(0.3) rotate(${rot}deg); 
+        opacity: 0; 
+      }
+    }`;
+    
+    const style = document.createElement('style');
+    style.textContent = keyframes;
+    document.head.appendChild(style);
+    
+    container.appendChild(sparkle);
+    sparkle.addEventListener('animationend', () => sparkle.remove());
+  }
+}
+
+/* ══ 現在時刻ハイライト ══ */
+function createDateTime(baseDate, timeStr) {
+  const [year, month, day] = baseDate.split('-').map(Number);
+  let [hour, minute] = timeStr.split(':').map(Number);
+  
+  const extraDays = Math.floor(hour / 24);
+  hour = hour % 24;
+  
+  return new Date(year, month - 1, day + extraDays, hour, minute);
+}
+
+function updateCurrentHighlight() {
+  const now = getNow();
+  const nowTime = now.getTime();
+  
+  // 既存のハイライトをクリア
+  document.querySelectorAll('.timeline-item.current-item').forEach(el => {
+    el.classList.remove('current-item');
+    el.querySelectorAll('.current-label').forEach(l => l.remove());
+  });
+  
+  let foundItem = null;
+  
+  // 全てのday-blockをチェック
+  document.querySelectorAll('.day-block').forEach(dayBlock => {
+    const blockDate = dayBlock.dataset.date; // "2026-06-20"
+    
+    dayBlock.querySelectorAll('.timeline-item[data-start]').forEach(item => {
+      const startTime = item.dataset.start; // "23:50"
+      const endTime = item.dataset.end || "23:59"; // "24:30" or "29:00"
+      
+      // 開始日時を作成（24時超え対応）
+      const startDateTime = createDateTime(blockDate, startTime);
+      
+      // 終了日時を作成（24時超え対応）
+      const endDateTime = createDateTime(blockDate, endTime);
+      
+      // 現在時刻が予定の範囲内かチェック
+      if (nowTime >= startDateTime.getTime() && nowTime < endDateTime.getTime()) {
+        item.classList.add('current-item');
+        const timeEl = item.querySelector('.timeline-time');
+        if (timeEl && !timeEl.querySelector('.current-label')) {
+          const lbl = document.createElement('span');
+          lbl.className = 'current-label';
+          lbl.textContent = 'NOW';
+          timeEl.appendChild(lbl);
+        }
+        foundItem = item;
+      }
+    });
+  });
+  
+  const fabNow = document.getElementById('fabNow');
+  const fabTodo = document.getElementById('fabTodo');
+  fabNow.style.display = foundItem ? 'flex' : 'none';
+  if (foundItem) {
+    // いまの予定表示時: fab-todoをその上に移動
+    const nowBottom = parseInt(getComputedStyle(fabNow).bottom);
+    const nowHeight = fabNow.offsetHeight;
+    fabTodo.style.bottom = (nowBottom + nowHeight + 8) + 'px';
+  } else {
+    // 非表示時: fab-nowと同じbottom値をCSSから取得して適用
+    fabTodo.style.bottom = getComputedStyle(fabNow).bottom;
+  }
+}
+
+function scrollToTodo() {
+  const cover = document.querySelector('.cover');
+  if (!cover) return;
+  const y = cover.getBoundingClientRect().bottom + window.scrollY;
+  window.scrollTo({ top: y, behavior: 'smooth' });
+}
+function scrollToNow() {
+  const cur = document.querySelector('.timeline-item.current-item');
+  if (!cur) return;
+  const dayBlock = cur.closest('.day-block');
+  if (dayBlock && dayBlock.classList.contains('collapsed')) dayBlock.classList.remove('collapsed');
+  setTimeout(() => cur.scrollIntoView({ behavior: 'smooth', block: 'center' }), 350);
+}
+
+/* ══ デバッグ ══ */
+function toggleDebug() { document.getElementById('debugPanel').classList.toggle('open'); }
+function applyDebugTime() {
+  const d = document.getElementById('debugDate').value;
+  const t = document.getElementById('debugTime').value;
+  if (!d || !t) return;
+  debugDateTime = d + 'T' + t + ':00';
+  document.getElementById('debugCurrentTime').textContent = '🕐 ' + d + ' ' + t;
+  refresh();
+}
+function resetDebugTime() {
+  debugDateTime = null;
+  document.getElementById('debugCurrentTime').textContent = '🕐 実時刻を使用中';
+  refresh();
+}
+function resetSecrets() {
+  document.querySelectorAll('.secret-name-revealed').forEach(el => {
+    el.classList.remove('visible');
+  });
+  document.querySelectorAll('.secret-btn').forEach(btn => {
+    btn.style.display = '';
+  });
+  // ボタンの状態を再評価
+  document.querySelectorAll('.secret-reveal[data-secret]').forEach(el => {
+    updateSecretBtn(el.dataset.secretId, el.dataset.unlockDate, el.dataset.unlockHhmm);
+  });
+}
+function refresh() {
+  updateCurrentHighlight();
+  document.querySelectorAll('.secret-reveal[data-secret]').forEach(el => {
+    updateSecretBtn(el.dataset.secretId, el.dataset.unlockDate, el.dataset.unlockHhmm);
+  });
+}
+
+/* ══ 初期化 ══ */
+buildTodo();
+buildMemos();
+buildSecrets();
+updateCurrentHighlight();
+
+// 現在の予定があるDAY以外を折りたたむ
+document.querySelectorAll('.day-block').forEach(dayBlock => {
+  const hasCurrent = dayBlock.querySelector('.timeline-item.current-item');
+  if (!hasCurrent) {
+    dayBlock.classList.add('collapsed');
+  }
+});
+
+setInterval(() => { if (!debugDateTime) refresh(); }, 60000);
+</script>
+
+
+</body></html>
