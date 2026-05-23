@@ -1786,7 +1786,7 @@ function updateCurrentHighlight() {
 function scrollToTodo() {
   const cover = document.querySelector('.cover');
   if (!cover) return;
-  const offset = 30;
+  const offset = 70;
   const y = cover.getBoundingClientRect().bottom + window.scrollY + offset;
   window.scrollTo({ top: y, behavior: 'smooth' });
 }
