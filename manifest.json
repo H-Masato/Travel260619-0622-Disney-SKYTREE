@@ -1,0 +1,30 @@
+{
+  "name": "TDL旅のしおり 2026",
+  "short_name": "TDL旅のしおり",
+  "description": "2026年6月19日〜22日 TDL旅行のしおり",
+  "start_url": "./tdl_travel_guide.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f1a2e",
+  "theme_color": "#0f1a2e",
+  "lang": "ja",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
