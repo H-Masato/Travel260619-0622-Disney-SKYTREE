@@ -43,6 +43,16 @@
     background: #0f1a2e;
     z-index: 9999;
     pointer-events: none;
+    overflow: hidden;
+  }
+  .stars-statusbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200%;
+    opacity: 0.6;
+    pointer-events: none;
   }
   body {
     background: var(--cream);
@@ -406,7 +416,9 @@
 </style>
 </head>
 <body>
-<div class="statusbar-bg"></div>
+<div class="statusbar-bg">
+  <div class="stars stars-statusbar"></div>
+</div>
 
 <div class="sparkle-container" id="sparkleContainer"></div>
 
@@ -1970,6 +1982,18 @@ document.querySelectorAll('.day-block').forEach(dayBlock => {
 });
 
 setInterval(() => { if (!debugDateTime) refresh(); }, 60000);
+
+// statusbar-bg を cover と同期（スクロール時にノッチ裏の星が連動）
+const statusBar = document.querySelector('.statusbar-bg');
+const coverEl = document.querySelector('.cover');
+function syncStatusBar() {
+  if (!statusBar || !coverEl) return;
+  const rect = coverEl.getBoundingClientRect();
+  statusBar.style.top = rect.top + 'px';
+}
+window.addEventListener('scroll', syncStatusBar, { passive: true });
+window.addEventListener('resize', syncStatusBar);
+syncStatusBar();
 
 // モバイル時のみ：▼SCROLLが画面外に消えたらFABボタンを表示
 if (window.innerWidth <= 600) {
