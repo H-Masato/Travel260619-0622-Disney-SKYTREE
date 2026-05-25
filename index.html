@@ -39,7 +39,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: env(safe-area-inset-top);
+    height: calc(env(safe-area-inset-top) + 500px);
     background: #0f1a2e;
     z-index: 9999;
     pointer-events: none;
@@ -1983,13 +1983,14 @@ document.querySelectorAll('.day-block').forEach(dayBlock => {
 
 setInterval(() => { if (!debugDateTime) refresh(); }, 60000);
 
-// statusbar-bg を cover と同期（スクロール時にノッチ裏の星が連動）
+// statusbar-bg の bottom を cover の top に追従させる
 const statusBar = document.querySelector('.statusbar-bg');
 const coverEl = document.querySelector('.cover');
 function syncStatusBar() {
   if (!statusBar || !coverEl) return;
   const rect = coverEl.getBoundingClientRect();
-  statusBar.style.top = rect.top + 'px';
+  const barHeight = statusBar.offsetHeight;
+  statusBar.style.top = (rect.top - barHeight) + 'px';
 }
 window.addEventListener('scroll', syncStatusBar, { passive: true });
 window.addEventListener('resize', syncStatusBar);
