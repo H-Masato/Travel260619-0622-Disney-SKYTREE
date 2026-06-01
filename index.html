@@ -2322,28 +2322,28 @@ window.addEventListener('scroll', syncStatusBar, { passive: true });
 window.addEventListener('resize', syncStatusBar);
 syncStatusBar();
 
-// モバイル時のみ：▼SCROLLが画面外に消えたらFABボタンを表示
+// モバイル時のみ：coverの底辺が画面に入ったらFABボタンを表示（一度表示したら維持）
 if (window.innerWidth <= 600) {
-  const scrollIndicator = document.querySelector('.cover-scroll');
+  const coverEl = document.querySelector('.cover');
   const fabs = [
     document.getElementById('fabTodo'),
     document.getElementById('fabDebug'),
     document.getElementById('fabNow'),
   ].filter(Boolean);
 
-  const observer = new IntersectionObserver((entries) => {
+  const fabObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        // ▼SCROLLが画面外 → ボタン表示
+      if (entry.isIntersecting) {
         fabs.forEach(fab => fab.classList.add('fab-visible'));
-      } else {
-        // ▼SCROLLが画面内 → ボタン非表示
-        fabs.forEach(fab => fab.classList.remove('fab-visible'));
+        fabObserver.disconnect(); // 一度表示したら監視終了
       }
     });
-  }, { threshold: 0 });
+  }, {
+    threshold: 0,
+    rootMargin: '0px 0px -100% 0px' // coverの下端が画面上端に達したとき検知
+  });
 
-  if (scrollIndicator) observer.observe(scrollIndicator);
+  if (coverEl) fabObserver.observe(coverEl);
 }
 
 // ろうそくアニメーション
