@@ -70,9 +70,8 @@
     background: var(--navy);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     position: relative; overflow: hidden;
-    /* コンテンツをノッチと重ならない位置に下げる */
-    padding-top: calc(60px + env(safe-area-inset-top));
-    padding-bottom: calc(80px + env(safe-area-inset-bottom));
+    padding-top: calc(env(safe-area-inset-top));
+    padding-bottom: calc(env(safe-area-inset-bottom));
     padding-left: calc(24px + env(safe-area-inset-left));
     padding-right: calc(24px + env(safe-area-inset-right));
     margin-bottom: -2px;
@@ -100,7 +99,7 @@
   .stars { position: absolute; inset: 0; pointer-events: none; }
   .star { position: absolute; width: 2px; height: 2px; background: rgba(255,255,255,0.6); border-radius: 50%; animation: twinkle 3s infinite alternate; }
   @keyframes twinkle { from { opacity: 0.2; transform: scale(1); } to { opacity: 1; transform: scale(1.4); } }
-  .cover-ornament { display: none; }
+  .cover-ornament { margin-bottom: 8px; animation: fadeDown 1s ease both; }
   .cover-subtitle { font-family: 'Shippori Mincho', serif; font-weight: 400; font-size: clamp(0.85rem, 2.2vw, 1.05rem); letter-spacing: 0.25em; color: var(--gold-light); animation: fadeDown 1s 0.35s ease both; margin-top: 20px; opacity: 0.85; }
   .cover-title { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.9rem, 5.5vw, 2.4rem); color: #fff; line-height: 1.5; text-align: center; animation: fadeDown 1s 0.2s ease both; z-index: 1; letter-spacing: 0.08em; }
   .cover-title span { color: var(--gold-light); font-size: clamp(1.4rem, 4vw, 1.85rem); display: block; }
@@ -119,7 +118,7 @@
   .picto-label { font-family: 'Shippori Mincho', serif; font-size: 0.65rem; letter-spacing: 0.12em; color: rgba(255,255,255,0.65); text-align: center; white-space: nowrap; line-height: 1.5; }
   .picto-label br ~ * { display: block; }
   .picto:nth-child(3) .picto-label { white-space: normal; }
-  .cover-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.4); font-size: 0.7rem; letter-spacing: 0.3em; animation: bounce 2s infinite; }
+  .cover-scroll { position: absolute; bottom: calc(24px + env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.4); font-size: 0.7rem; letter-spacing: 0.3em; animation: bounce 2s infinite; }
   @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
   @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -326,8 +325,6 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
-    .cover { padding-bottom: calc(320px + env(safe-area-inset-bottom)); }
-    .cover-scroll { position: absolute; bottom: 210px; left: 50%; transform: translateX(-50%); }
     .footer { font-size: 0.65rem; letter-spacing: 0.08em; }
     .footer div { white-space: nowrap; }
     .cover-dates { font-size: clamp(0.75rem, 3.8vw, 1rem); letter-spacing: 0.05em; white-space: nowrap; }    .todo-section { margin-bottom: 12px; }
@@ -428,7 +425,58 @@
 <!-- ── COVER ── -->
 <section class="cover">
   <div class="stars" id="stars"><div class="star" style="left: 89.3177%; top: 36.6281%; animation-delay: 1.32822s; animation-duration: 3.44465s;"></div><div class="star" style="left: 30.915%; top: 23.7963%; animation-delay: 0.352297s; animation-duration: 4.74846s;"></div><div class="star" style="left: 92.2755%; top: 28.4113%; animation-delay: 3.28026s; animation-duration: 4.79781s;"></div><div class="star" style="left: 23.9584%; top: 88.5907%; animation-delay: 3.89107s; animation-duration: 2.13253s;"></div><div class="star" style="left: 93.2782%; top: 63.4333%; animation-delay: 0.247753s; animation-duration: 2.02577s;"></div><div class="star" style="left: 62.731%; top: 13.9501%; animation-delay: 0.710092s; animation-duration: 2.65081s;"></div><div class="star" style="left: 78.3297%; top: 66.9572%; animation-delay: 2.55895s; animation-duration: 4.93768s;"></div><div class="star" style="left: 44.3347%; top: 87.001%; animation-delay: 3.13365s; animation-duration: 4.7734s;"></div><div class="star" style="left: 22.9129%; top: 22.8058%; animation-delay: 3.65366s; animation-duration: 4.90764s;"></div><div class="star" style="left: 59.6484%; top: 85.1181%; animation-delay: 1.69509s; animation-duration: 2.01283s;"></div><div class="star" style="left: 6.24302%; top: 54.4575%; animation-delay: 2.66367s; animation-duration: 4.60347s;"></div><div class="star" style="left: 57.865%; top: 63.5637%; animation-delay: 1.71004s; animation-duration: 4.66321s;"></div><div class="star" style="left: 27.213%; top: 38.3507%; animation-delay: 0.906056s; animation-duration: 2.27811s;"></div><div class="star" style="left: 67.9593%; top: 67.655%; animation-delay: 2.81784s; animation-duration: 4.64721s;"></div><div class="star" style="left: 47.1029%; top: 65.6476%; animation-delay: 2.99974s; animation-duration: 4.74878s;"></div><div class="star" style="left: 88.6771%; top: 84.6965%; animation-delay: 3.22347s; animation-duration: 3.68404s;"></div><div class="star" style="left: 27.7537%; top: 39.069%; animation-delay: 2.81802s; animation-duration: 3.78544s;"></div><div class="star" style="left: 92.6546%; top: 15.4388%; animation-delay: 1.29792s; animation-duration: 2.98896s;"></div><div class="star" style="left: 99.6087%; top: 41.3966%; animation-delay: 2.318s; animation-duration: 4.7227s;"></div><div class="star" style="left: 20.6283%; top: 76.5979%; animation-delay: 3.36944s; animation-duration: 2.09899s;"></div><div class="star" style="left: 78.8401%; top: 61.4712%; animation-delay: 0.75413s; animation-duration: 4.08582s;"></div><div class="star" style="left: 18.1004%; top: 9.97859%; animation-delay: 0.531017s; animation-duration: 4.74725s;"></div><div class="star" style="left: 61.2634%; top: 9.39254%; animation-delay: 2.93538s; animation-duration: 3.76536s;"></div><div class="star" style="left: 98.0731%; top: 65.1857%; animation-delay: 2.11041s; animation-duration: 4.32192s;"></div><div class="star" style="left: 65.399%; top: 96.9852%; animation-delay: 3.40732s; animation-duration: 2.8756s;"></div><div class="star" style="left: 27.8549%; top: 26.7329%; animation-delay: 0.888168s; animation-duration: 4.00972s;"></div><div class="star" style="left: 99.3751%; top: 57.8566%; animation-delay: 2.89499s; animation-duration: 3.42192s;"></div><div class="star" style="left: 52.4626%; top: 88.9543%; animation-delay: 2.31329s; animation-duration: 3.05056s;"></div><div class="star" style="left: 92.7003%; top: 96.8225%; animation-delay: 1.99717s; animation-duration: 3.33336s;"></div><div class="star" style="left: 77.5262%; top: 99.9099%; animation-delay: 3.8127s; animation-duration: 4.78758s;"></div><div class="star" style="left: 35.6168%; top: 40.5137%; animation-delay: 1.52685s; animation-duration: 2.61533s;"></div><div class="star" style="left: 90.9335%; top: 29.2013%; animation-delay: 1.58569s; animation-duration: 4.9919s;"></div><div class="star" style="left: 65.3152%; top: 14.2686%; animation-delay: 1.39256s; animation-duration: 4.99147s;"></div><div class="star" style="left: 97.1507%; top: 97.1437%; animation-delay: 0.868411s; animation-duration: 2.4676s;"></div><div class="star" style="left: 27.1634%; top: 61.4773%; animation-delay: 1.70565s; animation-duration: 2.0836s;"></div><div class="star" style="left: 81.2513%; top: 71.6021%; animation-delay: 3.8625s; animation-duration: 4.36021s;"></div><div class="star" style="left: 35.8858%; top: 80.5497%; animation-delay: 1.08842s; animation-duration: 3.08211s;"></div><div class="star" style="left: 1.98084%; top: 92.9423%; animation-delay: 1.87111s; animation-duration: 4.30782s;"></div><div class="star" style="left: 86.5667%; top: 25.4372%; animation-delay: 3.94669s; animation-duration: 3.2531s;"></div><div class="star" style="left: 80.5504%; top: 99.3155%; animation-delay: 0.829354s; animation-duration: 3.71343s;"></div><div class="star" style="left: 95.9007%; top: 73.8913%; animation-delay: 1.91315s; animation-duration: 3.02741s;"></div><div class="star" style="left: 11.9578%; top: 76.1216%; animation-delay: 2.5617s; animation-duration: 3.94828s;"></div><div class="star" style="left: 32.9275%; top: 79.9788%; animation-delay: 2.6982s; animation-duration: 4.84288s;"></div><div class="star" style="left: 9.42232%; top: 50.0787%; animation-delay: 3.18201s; animation-duration: 4.53747s;"></div><div class="star" style="left: 32.4117%; top: 72.2702%; animation-delay: 1.93313s; animation-duration: 2.0094s;"></div><div class="star" style="left: 42.8282%; top: 94.1146%; animation-delay: 2.55483s; animation-duration: 4.20952s;"></div><div class="star" style="left: 26.7272%; top: 22.8012%; animation-delay: 2.03727s; animation-duration: 3.75203s;"></div><div class="star" style="left: 11.0952%; top: 59.329%; animation-delay: 1.25855s; animation-duration: 3.14946s;"></div><div class="star" style="left: 20.2173%; top: 69.8574%; animation-delay: 1.56151s; animation-duration: 2.09622s;"></div><div class="star" style="left: 38.3159%; top: 49.7801%; animation-delay: 2.03984s; animation-duration: 4.17777s;"></div><div class="star" style="left: 75.2969%; top: 79.0443%; animation-delay: 3.14538s; animation-duration: 2.85446s;"></div><div class="star" style="left: 26.5529%; top: 91.0974%; animation-delay: 1.50993s; animation-duration: 3.71488s;"></div><div class="star" style="left: 10.7767%; top: 59.4004%; animation-delay: 0.510674s; animation-duration: 2.4828s;"></div><div class="star" style="left: 73.4827%; top: 87.8027%; animation-delay: 2.13396s; animation-duration: 3.05515s;"></div><div class="star" style="left: 55.696%; top: 22.7801%; animation-delay: 3.16234s; animation-duration: 3.00493s;"></div><div class="star" style="left: 11.9633%; top: 46.4432%; animation-delay: 1.35816s; animation-duration: 2.42319s;"></div><div class="star" style="left: 42.3269%; top: 38.7627%; animation-delay: 0.544029s; animation-duration: 2.40313s;"></div><div class="star" style="left: 7.07964%; top: 96.2767%; animation-delay: 2.01524s; animation-duration: 3.46371s;"></div><div class="star" style="left: 59.6938%; top: 5.39467%; animation-delay: 0.944338s; animation-duration: 4.17783s;"></div><div class="star" style="left: 70.3996%; top: 72.1523%; animation-delay: 2.70099s; animation-duration: 3.38373s;"></div><div class="star" style="left: 65.1249%; top: 42.9112%; animation-delay: 2.4435s; animation-duration: 4.03254s;"></div><div class="star" style="left: 45.0224%; top: 6.58343%; animation-delay: 2.60252s; animation-duration: 4.0507s;"></div><div class="star" style="left: 97.8276%; top: 94.012%; animation-delay: 2.68186s; animation-duration: 2.65521s;"></div><div class="star" style="left: 39.3473%; top: 70.1038%; animation-delay: 2.18885s; animation-duration: 3.82679s;"></div><div class="star" style="left: 68.9769%; top: 53.9975%; animation-delay: 3.60421s; animation-duration: 2.04676s;"></div><div class="star" style="left: 86.6628%; top: 81.8861%; animation-delay: 3.41197s; animation-duration: 4.68407s;"></div><div class="star" style="left: 41.8074%; top: 59.0322%; animation-delay: 1.5132s; animation-duration: 2.23645s;"></div><div class="star" style="left: 82.7402%; top: 52.116%; animation-delay: 1.24623s; animation-duration: 4.45515s;"></div><div class="star" style="left: 43.0677%; top: 70.9988%; animation-delay: 3.23977s; animation-duration: 4.60688s;"></div><div class="star" style="left: 16.663%; top: 17.6839%; animation-delay: 1.00963s; animation-duration: 3.83438s;"></div><div class="star" style="left: 2.68536%; top: 62.9642%; animation-delay: 3.02838s; animation-duration: 4.21339s;"></div><div class="star" style="left: 96.4004%; top: 99.7726%; animation-delay: 2.12806s; animation-duration: 4.69436s;"></div><div class="star" style="left: 1.44524%; top: 83.7688%; animation-delay: 1.59055s; animation-duration: 2.03775s;"></div><div class="star" style="left: 89.9572%; top: 92.9917%; animation-delay: 2.10992s; animation-duration: 4.72059s;"></div><div class="star" style="left: 0.640364%; top: 22.0874%; animation-delay: 2.40521s; animation-duration: 3.35707s;"></div><div class="star" style="left: 9.10744%; top: 85.4489%; animation-delay: 3.15148s; animation-duration: 3.52539s;"></div><div class="star" style="left: 74.0636%; top: 28.1972%; animation-delay: 1.77562s; animation-duration: 4.57639s;"></div><div class="star" style="left: 63.1482%; top: 11.1933%; animation-delay: 1.2191s; animation-duration: 4.84584s;"></div><div class="star" style="left: 1.65422%; top: 21.69%; animation-delay: 0.775462s; animation-duration: 2.8105s;"></div><div class="star" style="left: 5.50102%; top: 20.5506%; animation-delay: 2.3534s; animation-duration: 3.93309s;"></div></div>
-  <div class="cover-ornament">✦ ✦ ✦</div>
+  <div class="cover-ornament">
+    <svg id="candles-svg" width="160" height="95" viewBox="0 0 160 95" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="cg0" cx="50%" cy="60%" r="50%"><stop offset="0%" stop-color="rgba(201,149,42,0.33)"/><stop offset="100%" stop-color="rgba(201,149,42,0)"/></radialGradient>
+        <radialGradient id="cg1" cx="50%" cy="60%" r="50%"><stop offset="0%" stop-color="rgba(201,149,42,0.37)"/><stop offset="100%" stop-color="rgba(201,149,42,0)"/></radialGradient>
+        <radialGradient id="cg2" cx="50%" cy="60%" r="50%"><stop offset="0%" stop-color="rgba(201,149,42,0.44)"/><stop offset="100%" stop-color="rgba(201,149,42,0)"/></radialGradient>
+        <radialGradient id="cg3" cx="50%" cy="60%" r="50%"><stop offset="0%" stop-color="rgba(201,149,42,0.37)"/><stop offset="100%" stop-color="rgba(201,149,42,0)"/></radialGradient>
+        <radialGradient id="cg4" cx="50%" cy="60%" r="50%"><stop offset="0%" stop-color="rgba(201,149,42,0.33)"/><stop offset="100%" stop-color="rgba(201,149,42,0)"/></radialGradient>
+      </defs>
+      <!-- ろうそく0（左端・高さ28）y=95-28-5=62 -->
+      <g transform="translate(18,62)">
+        <ellipse id="cgl-0" cx="0" cy="-8" rx="13" ry="13" fill="url(#cg0)" opacity="0.5"/>
+        <path id="cfl-0" fill="none" stroke="rgba(201,149,42,0.9)" stroke-width="1.2" stroke-linecap="round" d="M0 0 Q2.5 -8 0 -16 Q-2.5 -8 0 0"/>
+        <line x1="0" y1="0" x2="0" y2="5" stroke="rgba(201,149,42,0.45)" stroke-width="1" stroke-linecap="round"/>
+        <path fill="rgba(201,149,42,0.18)" stroke="rgba(201,149,42,0.42)" stroke-width="0.7" d="M-4 6 Q-5 8 -5.2 10.5 Q-5.4 13 -4.6 13.8 Q-4 14.3 -3.5 13.5 Q-3.1 12.5 -3.4 10 Q-3.7 7.5 -4 6 Z"/>
+        <rect fill="rgba(201,149,42,0.11)" stroke="rgba(201,149,42,0.58)" stroke-width="1.1" x="-4" y="5" width="8" height="28" rx="1"/>
+      </g>
+      <!-- ろうそく1（左内・高さ38）y=95-38-5=52 -->
+      <g transform="translate(48,52)">
+        <ellipse id="cgl-1" cx="0" cy="-10" rx="16" ry="16" fill="url(#cg1)" opacity="0.56"/>
+        <path id="cfl-1" fill="none" stroke="rgba(201,149,42,0.92)" stroke-width="1.3" stroke-linecap="round" d="M0 0 Q3 -10 0 -20 Q-3 -10 0 0"/>
+        <line x1="0" y1="0" x2="0" y2="5" stroke="rgba(201,149,42,0.45)" stroke-width="1" stroke-linecap="round"/>
+        <path fill="rgba(201,149,42,0.18)" stroke="rgba(201,149,42,0.42)" stroke-width="0.7" d="M4 6 Q5.2 8.5 5.4 11 Q5.5 13.5 4.7 14.3 Q4.1 14.9 3.5 14 Q3 13 3.3 10.5 Q3.6 8 4 6 Z"/>
+        <rect fill="rgba(201,149,42,0.11)" stroke="rgba(201,149,42,0.6)" stroke-width="1.1" x="-5" y="5" width="10" height="38" rx="1"/>
+      </g>
+      <!-- ろうそく2（中央・高さ52）y=95-52-6=37 -->
+      <g transform="translate(80,37)">
+        <ellipse id="cgl-2" cx="0" cy="-13" rx="20" ry="20" fill="url(#cg2)" opacity="0.65"/>
+        <path id="cfl-2" fill="none" stroke="rgba(201,149,42,0.95)" stroke-width="1.5" stroke-linecap="round" d="M0 0 Q4 -13 0 -26 Q-4 -13 0 0"/>
+        <line x1="0" y1="0" x2="0" y2="6" stroke="rgba(201,149,42,0.5)" stroke-width="1" stroke-linecap="round"/>
+        <path fill="rgba(201,149,42,0.2)" stroke="rgba(201,149,42,0.48)" stroke-width="0.8" d="M5 8 Q6.5 10.5 6.7 14 Q6.8 17 5.8 17.8 Q5.1 18.4 4.4 17.5 Q3.9 16.5 4.2 13.5 Q4.5 10.5 5 8 Z"/>
+        <path fill="rgba(201,149,42,0.15)" stroke="rgba(201,149,42,0.38)" stroke-width="0.7" d="M-5 9 Q-6.3 11 -6.5 13.5 Q-6.6 16 -5.7 16.7 Q-5.1 17.2 -4.5 16.4 Q-4 15.5 -4.3 13 Q-4.6 10.5 -5 9 Z"/>
+        <rect fill="rgba(201,149,42,0.12)" stroke="rgba(201,149,42,0.63)" stroke-width="1.2" x="-6" y="6" width="12" height="52" rx="1"/>
+      </g>
+      <!-- ろうそく3（右内・高さ38）y=95-38-5=52 -->
+      <g transform="translate(112,52)">
+        <ellipse id="cgl-3" cx="0" cy="-10" rx="16" ry="16" fill="url(#cg3)" opacity="0.56"/>
+        <path id="cfl-3" fill="none" stroke="rgba(201,149,42,0.92)" stroke-width="1.3" stroke-linecap="round" d="M0 0 Q3 -10 0 -20 Q-3 -10 0 0"/>
+        <line x1="0" y1="0" x2="0" y2="5" stroke="rgba(201,149,42,0.45)" stroke-width="1" stroke-linecap="round"/>
+        <path fill="rgba(201,149,42,0.18)" stroke="rgba(201,149,42,0.42)" stroke-width="0.7" d="M-4 6 Q-5.2 8.5 -5.4 11 Q-5.5 13.5 -4.7 14.3 Q-4.1 14.9 -3.5 14 Q-3 13 -3.3 10.5 Q-3.6 8 -4 6 Z"/>
+        <rect fill="rgba(201,149,42,0.11)" stroke="rgba(201,149,42,0.6)" stroke-width="1.1" x="-5" y="5" width="10" height="38" rx="1"/>
+      </g>
+      <!-- ろうそく4（右端・高さ28）y=95-28-5=62 -->
+      <g transform="translate(142,62)">
+        <ellipse id="cgl-4" cx="0" cy="-8" rx="13" ry="13" fill="url(#cg4)" opacity="0.5"/>
+        <path id="cfl-4" fill="none" stroke="rgba(201,149,42,0.9)" stroke-width="1.2" stroke-linecap="round" d="M0 0 Q2.5 -8 0 -16 Q-2.5 -8 0 0"/>
+        <line x1="0" y1="0" x2="0" y2="5" stroke="rgba(201,149,42,0.45)" stroke-width="1" stroke-linecap="round"/>
+        <path fill="rgba(201,149,42,0.18)" stroke="rgba(201,149,42,0.42)" stroke-width="0.7" d="M4 6 Q5 8 5.2 10.5 Q5.4 13 4.6 13.8 Q4 14.3 3.5 13.5 Q3.1 12.5 3.4 10 Q3.7 7.5 4 6 Z"/>
+        <rect fill="rgba(201,149,42,0.11)" stroke="rgba(201,149,42,0.58)" stroke-width="1.1" x="-4" y="5" width="8" height="28" rx="1"/>
+      </g>
+    </svg>
+  </div>
   <h1 class="cover-title">Magical Trip Guide<br><span>2026</span></h1>
   <div class="cover-subtitle">— Celebrating Our Birthdays —</div>
   <div class="cover-divider">
@@ -844,7 +892,7 @@ c31 55 125 224 210 375 85 151 190 339 233 418 43 78 80 142 82 142 2 0 3
     <div class="day-body">
       <div class="timeline">
 
-        <div class="timeline-item highlight" data-start="18:00" data-end="18:15">
+        <div class="timeline-item highlight" data-start="18:00" data-end="18:30">
           <div class="timeline-dot"></div>
           <div class="timeline-time">18:00</div>
           <div class="timeline-body">
@@ -865,13 +913,13 @@ c31 55 125 224 210 375 85 151 190 339 233 418 43 78 80 142 82 142 2 0 3
           </div>
         </div>
 
-        <div class="timeline-item" data-start="18:15" data-end="18:45">
+        <div class="timeline-item" data-start="18:30" data-end="19:30">
           <div class="timeline-dot"></div>
-          <div class="timeline-time">18:15</div>
+          <div class="timeline-time">18:30</div>
           <div class="timeline-body">
             <div class="timeline-label">準備</div>
             <div class="timeline-event">🚿 お風呂タイム</div>
-            <div class="timeline-duration">⏱ 30分</div>
+            <div class="timeline-duration">⏱ 60分</div>
             <span class="badge badge-rest">準備</span>
             <div class="memo-section" data-memo-id="d1-1815">
       <button class="memo-toggle" onclick="toggleMemo(&#39;d1-1815&#39;)">✏️ メモを追加</button>
@@ -886,13 +934,13 @@ c31 55 125 224 210 375 85 151 190 339 233 418 43 78 80 142 82 142 2 0 3
           </div>
         </div>
 
-        <div class="timeline-item" data-start="18:45" data-end="19:30">
+        <div class="timeline-item" data-start="19:30" data-end="20:30">
           <div class="timeline-dot"></div>
-          <div class="timeline-time">18:45</div>
+          <div class="timeline-time">19:30</div>
           <div class="timeline-body">
             <div class="timeline-label">移動</div>
             <div class="route"><span>🚗 彦根</span><span class="route-arrow">▶</span><span>尾張一宮SA</span></div>
-            <div class="timeline-duration">⏱ 45分</div>
+            <div class="timeline-duration">⏱ 60分</div>
             <span class="badge badge-move">移動</span>
             <div class="memo-section" data-memo-id="d1-1845">
       <button class="memo-toggle" onclick="toggleMemo(&#39;d1-1845&#39;)">✏️ メモを追加</button>
@@ -2297,6 +2345,35 @@ if (window.innerWidth <= 600) {
 
   if (scrollIndicator) observer.observe(scrollIndicator);
 }
+
+// ろうそくアニメーション
+(function() {
+  const cv = [
+    { fl: document.getElementById('cfl-0'), gl: document.getElementById('cgl-0'), phase:0.0,  h:16, r:13, spd:1.4 },
+    { fl: document.getElementById('cfl-1'), gl: document.getElementById('cgl-1'), phase:0.9,  h:20, r:16, spd:1.1 },
+    { fl: document.getElementById('cfl-2'), gl: document.getElementById('cgl-2'), phase:1.7,  h:26, r:20, spd:1.0 },
+    { fl: document.getElementById('cfl-3'), gl: document.getElementById('cgl-3'), phase:2.6,  h:20, r:16, spd:1.3 },
+    { fl: document.getElementById('cfl-4'), gl: document.getElementById('cgl-4'), phase:3.5,  h:16, r:13, spd:1.5 },
+  ];
+  function wave(t) { return Math.sin(t)*0.5 + Math.sin(t*2.1)*0.3 + Math.sin(t*0.6)*0.2; }
+  function tick(ts) {
+    const t = ts / 1000;
+    cv.forEach(c => {
+      const s = t * c.spd + c.phase;
+      const sw = wave(s) * 2.0;
+      const ht = c.h * (1 + wave(s * 0.8) * 0.07);
+      const cp = sw * 0.55;
+      c.fl.setAttribute('d', `M0 0 Q${2.5+cp} ${-ht*0.5} ${sw*0.3} ${-ht} Q${-2.5+cp} ${-ht*0.5} 0 0`);
+      const op = (c.r === 20 ? 0.62 : 0.48) + wave(s * 0.9) * 0.1;
+      const rs = c.r * (0.85 + wave(s * 0.6) * 0.16);
+      c.gl.setAttribute('opacity', Math.max(0.28, Math.min(0.84, op)));
+      c.gl.setAttribute('rx', rs);
+      c.gl.setAttribute('ry', rs);
+    });
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
 </script>
 
 
