@@ -1984,11 +1984,45 @@ const scrollObs = new IntersectionObserver(entries => {
 }, { threshold: 0.05 });
 document.querySelectorAll('.day-block, .todo-section').forEach(el => scrollObs.observe(el));
 
-/* ══ メモ ══ */
-function buildMemos() {
+/* ══ メモ（Gist同期） ══ */
+const GIST_TOKEN = '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';
+const GIST_ID    = '369404d5dd03bcb157e36ddb29fb4f55';
+const GIST_FILE  = 'tdl_memo.json';
+let   gistMemos  = {};  // 全メモのキャッシュ
+
+async function fetchGistMemos() {
+  try {
+    const res = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
+      headers: { Authorization: `Bearer ${GIST_TOKEN}` }
+    });
+    if (!res.ok) throw new Error('fetch failed');
+    const data = await res.json();
+    const content = data.files[GIST_FILE]?.content || '{}';
+    gistMemos = JSON.parse(content);
+  } catch(e) {
+    // Gist取得失敗時はlocalStorageにフォールバック
+    gistMemos = {};
+  }
+}
+
+async function pushGistMemos() {
+  try {
+    await fetch(`https://api.github.com/gists/${GIST_ID}`, {
+      method: 'PATCH',
+      headers: {
+        Authorization: `Bearer ${GIST_TOKEN}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ files: { [GIST_FILE]: { content: JSON.stringify(gistMemos, null, 2) } } })
+    });
+  } catch(e) { console.warn('Gist保存失敗', e); }
+}
+
+async function buildMemos() {
+  await fetchGistMemos();
   document.querySelectorAll('.memo-section[data-memo-id]').forEach(section => {
     const id = section.dataset.memoId;
-    const saved = localStorage.getItem('memo:' + id) || '';
+    const saved = gistMemos[id] || localStorage.getItem('memo:' + id) || '';
     section.innerHTML = `
       <button class="memo-toggle" onclick="toggleMemo('${id}')">✏️ メモ${saved ? '（記入済）' : 'を追加'}</button>
       <div class="memo-box ${saved ? 'open' : ''}" id="memobox-${id}">
@@ -2002,20 +2036,26 @@ function buildMemos() {
   });
 }
 function toggleMemo(id) { document.getElementById('memobox-' + id).classList.toggle('open'); }
-function saveMemo(id) {
+async function saveMemo(id) {
   const val = document.getElementById('memotext-' + id).value;
-  localStorage.setItem('memo:' + id, val);
+  gistMemos[id] = val;
+  localStorage.setItem('memo:' + id, val);  // ローカルにも保存（オフライン対応）
   const btn = document.querySelector(`[data-memo-id="${id}"] .memo-toggle`);
   if (btn) btn.textContent = val ? '✏️ メモ（記入済）' : '✏️ メモを追加';
   const lbl = document.getElementById('memosaved-' + id);
+  lbl.textContent = '⏳ 保存中…';
   lbl.classList.add('show');
+  await pushGistMemos();
+  lbl.textContent = '✓ 保存しました';
   setTimeout(() => lbl.classList.remove('show'), 2000);
 }
-function clearMemo(id) {
+async function clearMemo(id) {
+  delete gistMemos[id];
   localStorage.removeItem('memo:' + id);
   document.getElementById('memotext-' + id).value = '';
   const btn = document.querySelector(`[data-memo-id="${id}"] .memo-toggle`);
   if (btn) btn.textContent = '✏️ メモを追加';
+  await pushGistMemos();
 }
 
 /* ══ 隠し店名 ══ */
