@@ -138,7 +138,7 @@
   }
   .todo-section-header:hover .todo-section-title { color: var(--gold); }
   .todo-section-label { display: inline-block; background: #3a6040; color: #a8e0b0; font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.3em; padding: 6px 18px; border-radius: 4px; }
-  .todo-section-title { font-family: 'Shippori Mincho', serif; font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; color: var(--navy); transition: color 0.2s; }
+  .todo-section-title { font-family: 'Shippori Mincho', serif; font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; color: var(--navy); transition: color 0.2s; }
   .todo-toggle-icon { color: var(--gold); font-size: 1rem; transition: transform 0.35s ease; margin-left: auto; }
   .todo-section.collapsed .todo-toggle-icon { transform: rotate(-90deg); }
   .todo-body { overflow: hidden; max-height: 9999px; transition: max-height 0.5s ease, opacity 0.4s ease; opacity: 1; }
@@ -260,6 +260,7 @@
   .secret-countdown { font-size: 0.7rem; color: rgba(240,201,106,0.6); letter-spacing: 0.05em; }
   .secret-name-revealed { display: none; font-family: 'Shippori Mincho', serif; font-size: 1.0rem; font-weight: 700; color: var(--gold); padding: 6px 0; letter-spacing: 0.1em; width: fit-content; }
   .secret-name-revealed.visible { display: inline-block; }
+  @media (max-width: 600px) { .secret-name-revealed { font-size: 0.85rem; letter-spacing: 0.05em; } }
 
   /* きらきら */
   .sparkle-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; overflow: hidden; }
@@ -323,12 +324,12 @@
   .footer { background: var(--navy); color: rgba(255,255,255,0.4); text-align: center; padding: 48px 24px; padding-bottom: calc(48px + env(safe-area-inset-bottom)); font-size: 0.75rem; letter-spacing: 0.2em; }
   .footer-logo { font-family: 'Shippori Mincho', serif; font-size: 1.3rem; color: var(--gold); margin-bottom: 12px; }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 600px) {
+  .mobile-br { display: none; }
+  @media (max-width: 600px) { .mobile-br { display: block; } }
     .footer { font-size: 0.65rem; letter-spacing: 0.08em; }
     .footer div { white-space: nowrap; }
     .cover-dates { font-size: clamp(0.75rem, 3.8vw, 1rem); letter-spacing: 0.05em; white-space: nowrap; }    .todo-section { margin-bottom: 12px; }
-    .day-block { margin-top: 12px; margin-bottom: 12px; }
+    .day-block { margin-top: 40px; margin-bottom: 48px; }
     .day-header { padding-bottom: 12px; }
 
     .timeline { 
@@ -350,12 +351,12 @@
     /* DAYヘッダー */
     .day-number { display: none; }
     .day-label { font-size: 0.68rem; padding: 4px 12px; }
-    .day-title { font-size: 1.1rem; }
+    .day-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
     .day-date { font-size: 0.72rem; }
 
     /* TODOリスト */
     .todo-grid { grid-template-columns: 1fr; }
-    .todo-section-title { font-size: 1.3rem; }
+    .todo-section-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
     .todo-item { font-size: 0.8rem; }
     .todo-category-title { font-size: 0.72rem; }
 
@@ -965,7 +966,7 @@ c31 55 125 224 210 375 85 151 190 339 233 418 43 78 80 142 82 142 2 0 3
               <span class="place-action">🍽 晩ごはん</span>
             </div>
             <div class="timeline-duration">⏱ 30分</div>
-            <div class="timeline-note">☕ 頑張ったらスタバも！（21:00まで営業）</div>
+            <div class="timeline-note">☕ 頑張ったらスタバも！<br class="mobile-br">（21:00まで営業）</div>
             <span class="badge badge-food">食事</span>
             <div class="memo-section" data-memo-id="d1-2030">
       <button class="memo-toggle" onclick="toggleMemo(&#39;d1-2030&#39;)">✏️ メモを追加</button>
@@ -1442,7 +1443,7 @@ c31 55 125 224 210 375 85 151 190 339 233 418 43 78 80 142 82 142 2 0 3
             <div class="timeline-label">フリータイム③</div>
             <div class="timeline-event">🌙 フリータイム③</div>
             <div class="timeline-duration">⏱ 2時間</div>
-            <div class="timeline-note">✨ 19:15〜20:00 エレクトリカルパレード。DPA取る？</div>
+            <div class="timeline-note">✨ 19:15〜20:00 <br class="mobile-br">エレクトリカルパレード。DPA取る？</div>
             <span class="badge badge-enjoy">アトラクション</span>
             <div class="memo-section" data-memo-id="d2-1900">
       <button class="memo-toggle" onclick="toggleMemo(&#39;d2-1900&#39;)">✏️ メモを追加</button>
@@ -1572,7 +1573,7 @@ c31 55 125 224 210 375 85 151 190 339 233 418 43 78 80 142 82 142 2 0 3
               <span class="place-action">🍳 朝食</span>
             </div>
             <div class="timeline-duration">⏱ 1時間</div>
-            <div class="timeline-note">グランカフェ？選択肢あり。8:30〜10:00は混みやすいので早めに！</div>
+            <div class="timeline-note">グランカフェ？選択肢あり。<br class="mobile-br">8:30〜10:00は混みやすいので早めに！</div>
             <span class="badge badge-food">食事</span>
             <div class="memo-section" data-memo-id="d3-0800">
       <button class="memo-toggle" onclick="toggleMemo(&#39;d3-0800&#39;)">✏️ メモを追加</button>
@@ -1594,7 +1595,7 @@ c31 55 125 224 210 375 85 151 190 339 233 418 43 78 80 142 82 142 2 0 3
             <div class="timeline-label">散策</div>
             <div class="timeline-event">🚶 舞浜エリアをゆっくり散策</div>
             <div class="timeline-duration">⏱ 2時間30分</div>
-            <div class="timeline-note">ボンボヴォヤージュ、ランドホテル等をお散歩♪</div>
+            <div class="timeline-note">ボンボヴォヤージュ、ランドホテル等<br class="mobile-br">お散歩♪</div>
             <span class="badge badge-enjoy">観光</span>
             <div class="memo-section" data-memo-id="d3-0900">
       <button class="memo-toggle" onclick="toggleMemo(&#39;d3-0900&#39;)">✏️ メモを追加</button>
@@ -1686,7 +1687,7 @@ c31 55 125 224 210 375 85 151 190 339 233 418 43 78 80 142 82 142 2 0 3
             <div class="timeline-label">移動</div>
             <div class="route"><span>🚃 第一ホテル両国</span><span class="route-arrow">▶</span><span>スカイツリー</span></div>
             <div class="timeline-duration">⏱ 30分</div>
-            <div class="timeline-note">JR両国→JR錦糸町、メトロ錦糸町→メトロ押上</div>
+            <div class="timeline-note">JR両国→JR錦糸町、<br class="mobile-br">メトロ錦糸町→メトロ押上</div>
             <span class="badge badge-move">電車</span>
             <div class="memo-section" data-memo-id="d3-1300">
       <button class="memo-toggle" onclick="toggleMemo(&#39;d3-1300&#39;)">✏️ メモを追加</button>
@@ -1737,7 +1738,7 @@ c31 55 125 224 210 375 85 151 190 339 233 418 43 78 80 142 82 142 2 0 3
     <div class="day-header" onclick="toggleDay(&#39;day4&#39;)">
       <div class="day-header-inner">
         <div class="day-label">Day 4</div>
-        <div class="day-title">いよいよ帰宅。素敵な思い出をありがとう！</div>
+        <div class="day-title">いよいよ帰宅。また行こうね♪</div>
         <div class="day-date">2026年6月22日（月）</div>
       </div>
       <div class="day-toggle-icon">▼</div>
@@ -1837,7 +1838,7 @@ c31 55 125 224 210 375 85 151 190 339 233 418 43 78 80 142 82 142 2 0 3
             <div class="timeline-label">帰宅</div>
             <div class="route"><span>🚗 りまちゃん家</span><span class="route-arrow">▶</span><span>彦根（帰宅）</span></div>
             <div class="timeline-duration">⏱ 1時間</div>
-            <div class="timeline-note">🎉 楽しい旅の思い出をありがとう！また行こうね。</div>
+            <div class="timeline-note">🎉 楽しい旅の思い出をありがとう！<br class="mobile-br">また行こうね。</div>
             <span class="badge badge-move">帰宅</span>
             <div class="memo-section" data-memo-id="d4-1900">
       <button class="memo-toggle" onclick="toggleMemo(&#39;d4-1900&#39;)">✏️ メモを追加</button>
@@ -1861,7 +1862,7 @@ c31 55 125 224 210 375 85 151 190 339 233 418 43 78 80 142 82 142 2 0 3
 <!-- ── FOOTER ── -->
 <footer class="footer">
   <div class="footer-logo">Magical Trip Guide 2026</div>
-  <div>June 19 (Fri) – June 22 (Sun), 2026 ／ Have a magical time! 🏰</div>
+  <div>Have a magical time! 🏰</div>
 </footer>
 
 <!-- FABs -->
@@ -2236,9 +2237,11 @@ function scrollToTodo() {
   if (!section) return;
   // collapsedを外してリストを開く
   section.classList.remove('collapsed');
-  // 開くアニメーション後にスクロール
+  // coverの底辺がちょうど画面上端に来る位置までスクロール
+  const cover = document.querySelector('.cover');
+  const targetY = cover ? cover.getBoundingClientRect().bottom + window.scrollY : 0;
   setTimeout(() => {
-    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.scrollTo({ top: targetY, behavior: 'smooth' });
   }, 350);
 }
 function scrollToNow() {
@@ -2356,7 +2359,7 @@ if (window.innerWidth <= 600) {
   if (coverEl) fabObserver.observe(coverEl);
 }
 
-// 車→城→Sheraton→Skytreeの順でクリックするとDEBUGボタンを表示
+// 車→城→Sheraton→Skytreeの順でクリックするとDEBUGボタンを表示/非表示トグル
 (function() {
   const sequence = ['picto-car', 'picto-castle', 'picto-sheraton', 'picto-skytree'];
   let step = 0;
@@ -2367,7 +2370,9 @@ if (window.innerWidth <= 600) {
       if (i === step) {
         step++;
         if (step === sequence.length) {
-          document.getElementById('fabDebug').style.display = 'flex';
+          const btn = document.getElementById('fabDebug');
+          // 表示中なら非表示、非表示なら表示
+          btn.style.display = (btn.style.display === 'flex') ? 'none' : 'flex';
           step = 0; // リセット
         }
       } else {
