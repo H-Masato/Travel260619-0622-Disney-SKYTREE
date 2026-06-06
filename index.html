@@ -2323,6 +2323,11 @@ document.querySelectorAll('.day-block').forEach(dayBlock => {
 
 setInterval(() => { if (!debugDateTime) refresh(); }, 60000);
 
+// アプリがフォアグラウンドに戻った瞬間にrefresh
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible' && !debugDateTime) refresh();
+});
+
 // statusbar-bg の bottom を cover の top に追従させる
 const statusBar = document.querySelector('.statusbar-bg');
 const coverEl = document.querySelector('.cover');
